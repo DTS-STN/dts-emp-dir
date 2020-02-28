@@ -1,2 +1,2 @@
 # dts-emp-dir
-PoC code base for 
+PoC code base for the Employee Directory (Grassroots) Proof of Concept!
