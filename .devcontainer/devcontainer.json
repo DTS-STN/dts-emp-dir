@@ -4,7 +4,6 @@
     "appPort": 3000,
     "extensions": [
 		"CoenraadS.bracket-pair-colorizer",
-		"hazer.ReactCodeSnippets",
 		"Tyriar.sort-lines"
 	],
     "settings": {
