@@ -22,7 +22,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: test true
-      run: return true 
+      run: return 1
 
 
   publish_Deploy:
