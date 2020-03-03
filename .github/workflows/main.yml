@@ -22,12 +22,12 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: test true
-      run: return 1
+      run: echo test
 
 
   publish_Deploy:
     name: Publish and Deploy
-    #needs: testing
+    needs: testing
     if: github.event_name == 'push'
     runs-on: ubuntu-latest
     steps:
