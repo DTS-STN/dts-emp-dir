@@ -6,14 +6,13 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
-    "docker": "^1.0.0",
-    "docker-compose": "^0.23.2",
+    "cypress": "^4.1.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-scripts": "3.4.0"
   },
   "scripts": {
-    "start-db": "docker-compose -f docker-compose.db.yml up",
+    "start-db": "docker-compose -f docker-compose.db.yml up --remove-orphans",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
