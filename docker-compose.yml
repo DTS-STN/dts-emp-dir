@@ -13,7 +13,7 @@ services:
   e2e:
     build:
       context: ./
-      dockerfile: cypress.Dockerfile
+      dockerfile: Cypress.Dockerfile
     container_name: cypress
     depends_on:
       - dts-emp-dir
