@@ -35,20 +35,20 @@ jobs:
       uses: einaregilsson/build-number@v1 
       with:
         token: ${{secrets.github_token}}        
-    # - name: Print new build number
-    #   run: echo Build number is $BUILD_NUMBER   
-    # - uses: azure/docker-login@v1
-    #   with:
-    #     login-server: mtscontainers.azurecr.io
-    #     username: ${{ secrets.DTS_AZURE_USERNAME }}
-    #     password: ${{ secrets.DTS_AZURE_PASSWORD }}
-    # - uses: actions/checkout@v1
-    # - name: docker build and push
-    #   run: |
-    #     docker build --build-arg DB_NAME=temp -t mtscontainers.azurecr.io/dts-scheduler:latest .
-    #     docker tag mtscontainers.azurecr.io/dts-scheduler:latest mtscontainers.azurecr.io/dts-scheduler:$BUILD_NUMBER
-    #     docker push mtscontainers.azurecr.io/dts-scheduler:latest
-    #     docker push mtscontainers.azurecr.io/dts-scheduler:$BUILD_NUMBER
+    - name: Print new build number
+      run: echo Build number is $BUILD_NUMBER   
+    - uses: azure/docker-login@v1
+      with:
+        login-server: mtscontainers.azurecr.io
+        username: ${{ secrets.DTS_AZURE_USERNAME }}
+        password: ${{ secrets.DTS_AZURE_PASSWORD }}
+    - uses: actions/checkout@v1
+    - name: docker build and push
+      run: |
+        docker build --build-arg DB_NAME=temp -t mtscontainers.azurecr.io/dts-emp-dir:latest .
+        docker tag mtscontainers.azurecr.io/dts-emp-dir:latest mtscontainers.azurecr.io/dts-emp-dir:$BUILD_NUMBER
+        docker push mtscontainers.azurecr.io/dts-emp-dir:latest
+        docker push mtscontainers.azurecr.io/dts-emp-dir:$BUILD_NUMBER
     # - name: curl
     #   uses: wei/curl@v1
     #   with:
