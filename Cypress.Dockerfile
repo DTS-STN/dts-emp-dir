@@ -15,4 +15,4 @@ RUN yarn add --save-dev cypress-axe axe-core
 RUN npx cypress verify
 
 COPY cypress ./cypress
-# COPY cypress.json .
+COPY cypress.json .
