@@ -17,5 +17,5 @@ services:
 #HTTP://LOCALHOST:8081 AFTER STARTING MONGO. 
 #NOTE: This seems to work when it wants, so 
 #for full functionality try using MongoDB
-#Compass and connect to http://localhost/27017 
+#Compass and connect to http://172.21.0.2:27017 
 #for full database management.
