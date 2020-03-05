@@ -14,7 +14,7 @@
     "cypress": "^4.1.0"
   },
   "scripts": {
-    "start-db": "docker-compose -f docker-compose.db.yml up --remove-orphans",
+    "start-db": "cd backend && docker-compose build --no-cache && docker-compose up",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
