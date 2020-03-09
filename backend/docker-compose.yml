@@ -1,4 +1,4 @@
-version: '3.1'
+version: '3.3'
 
 services:
 
@@ -14,4 +14,8 @@ services:
 #TERMINAL (NOT INSIDE THE DEV CONTAINER)
 
 #IMPORTANT!!!  FOR ACCESS TO MONGO GUI, HIT:
-#HTTP://LOCALHOST:8081 AFTER STARTING MONGO.
+#HTTP://LOCALHOST:8081 AFTER STARTING MONGO. 
+#NOTE: This seems to work when it wants, so 
+#for full functionality try using MongoDB
+#Compass and connect to http://172.21.0.2:27017 
+#for full database management.
