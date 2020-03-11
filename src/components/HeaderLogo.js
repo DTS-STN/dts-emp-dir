@@ -1,9 +1,9 @@
 import React from 'react'
 
 import gocEn from '../assets/sig-blk-en.svg'
+//import gocEn from '../assets/GOC_black_en.jpg'     NOTE: replace with this line for Black english logo
 import gocFr from '../assets/sig-blk-fr.svg'
-//import gocEn from '../assets/GOC_black_en.jpg'     NOTE: replace with this line for Black logo
-//import gocFr from '../assets/GOC_black_fr.jpg'     NOTE: replace with this line for Black logo
+//import gocFr from '../assets/GOC_black_fr.jpg'     NOTE: replace with this line for Black french logo
 
 import { Trans } from '@lingui/macro';
 import { connect } from 'react-redux';
