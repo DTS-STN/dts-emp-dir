@@ -1,21 +1,18 @@
 version: '3.3'
 
 services:
-
   mongo:
     image: mongo
     restart: always
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
-
-#TO RUN DATABASE LOCALLY FROM THE CLI
-#RUN yarn start-db FROM AN EXTERNAL
-#TERMINAL (NOT INSIDE THE DEV CONTAINER)
-
-#IMPORTANT!!!  FOR ACCESS TO MONGO GUI, HIT:
-#HTTP://LOCALHOST:8081 AFTER STARTING MONGO. 
-#NOTE: This seems to work when it wants, so 
-#for full functionality try using MongoDB
-#Compass and connect to http://172.21.0.2:27017 
-#for full database management.
+    networks:
+      employee-dev:
+        ipv4_address: 97.1.1.1
+networks:
+  employee-dev:
+    ipam:
+      driver: default
+      config:
+        - subnet: 97.1.1.0/16

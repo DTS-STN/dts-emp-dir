@@ -14,7 +14,7 @@
     "cypress": "^4.1.0"
   },
   "scripts": {
-    "start-db": "cd backend && docker-compose up",
+    "start-db": "cd backend && docker-compose up -d && docker run mongo:latest",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
