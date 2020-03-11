@@ -1,0 +1,10 @@
+{
+  "Logout": {
+    "origin": [
+      [
+        "src/components/auth/Logout.js",
+        20
+      ]
+    ]
+  }
+}

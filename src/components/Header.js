@@ -1,32 +1,40 @@
-import React from 'react';
-import gocEnLogo from '../img/GOC_black_en.jpg';
+import React from 'react'
+import HeaderLang from '../components/HeaderLang'
+import HeaderLogo from '../components/HeaderLogo'
+import { Trans } from '@lingui/macro';
+//import HeaderNav  from '../components/HeaderNav'
+// import Breadcrump from '../components/Breadcrump';
 
-const Header = () => {
-  return (
-    <header>
+class Header extends React.Component {
 
-      <div>
-        <a class="skip-main" href="#Engagements">Skip to main content</a>
-      </div>
+  render() {
+    return (
+      <React.Fragment>
+      <div className="par iparys_inherited">
+        <div className="global-header">
+          <nav>
+            <ul id="wb-tphp" className="wb-init wb-disable-inited">
+              <li className="wb-slc"><a className="wb-sl" href="#wb-cont"><Trans>Skip to main content</Trans></a></li>
+              <li className="wb-slc"><a className="wb-sl" href="#wb-info"><Trans>Skip to "About government"</Trans></a></li>
+            </ul>
+          </nav>
 
-      <div id="header-container" class="container-fluid">
-        <div id="header" role="banner" class="row">
-          <div class="col-8 col-md-4 col-sm-6 col-xs-8 col-lg-3 col-xl-3">
-            <a id="gc-header-logo" href="https://www.canada.ca/">
-              <img class="img-fluid pl-xl-1 pt-2 " src={gocEnLogo} alt="Government of Canada Logo" /></a>
-          </div>
-          <div class="col">
-            <div class="pr-xl-3 pt-2 float-right">
-              <p id="lang-toggle-button-label">
-                <a id="lang-change-link" class="links" href="startfr.html" ><span>Fran&#231;ais</span></a>
-              </p>
+          <header>
+            <div id="wb-bnr" className="container">
+              <HeaderLang />
+              <HeaderLogo />
             </div>
-          </div>
+
+            {/* <HeaderNav /> */}
+            {/* <Breadcrump /> */}
+
+          </header>
+
         </div>
       </div>
-
-    </header>
-  )
+      </React.Fragment>
+    )
+  }
 }
 
 export default Header;

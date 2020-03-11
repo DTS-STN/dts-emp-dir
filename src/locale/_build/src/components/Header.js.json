@@ -1,0 +1,26 @@
+{
+  "Skip to main content": {
+    "origin": [
+      [
+        "src/components/Header.js",
+        18
+      ]
+    ]
+  },
+  "Skip to \"About government\"": {
+    "origin": [
+      [
+        "src/components/Header.js",
+        19
+      ]
+    ]
+  },
+  "Switch to basic HTML version": {
+    "origin": [
+      [
+        "src/components/Header.js",
+        20
+      ]
+    ]
+  }
+}
