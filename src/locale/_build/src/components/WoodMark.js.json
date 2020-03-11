@@ -1,0 +1,66 @@
+{
+  "About this site": {
+    "origin": [
+      [
+        "src/components/WoodMark.js",
+        17
+      ]
+    ]
+  },
+  "Social media": {
+    "origin": [
+      [
+        "src/components/WoodMark.js",
+        19
+      ]
+    ]
+  },
+  "Mobile applications": {
+    "origin": [
+      [
+        "src/components/WoodMark.js",
+        20
+      ]
+    ]
+  },
+  "About Canada.ca": {
+    "origin": [
+      [
+        "src/components/WoodMark.js",
+        21
+      ]
+    ]
+  },
+  "Terms and conditions": {
+    "origin": [
+      [
+        "src/components/WoodMark.js",
+        22
+      ]
+    ]
+  },
+  "Privacy": {
+    "origin": [
+      [
+        "src/components/WoodMark.js",
+        23
+      ]
+    ]
+  },
+  "Top of page": {
+    "origin": [
+      [
+        "src/components/WoodMark.js",
+        27
+      ]
+    ]
+  },
+  "Symbol of the Government of Canada": {
+    "origin": [
+      [
+        "src/components/WoodMark.js",
+        32
+      ]
+    ]
+  }
+}

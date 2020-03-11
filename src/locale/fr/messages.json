@@ -1,0 +1,323 @@
+{
+  "About Canada.ca": {
+    "translation": "À propos de Canada.ca",
+    "origin": [
+      [
+        "src/components/WoodMark.js",
+        21
+      ]
+    ]
+  },
+  "About government": {
+    "translation": "À propos de gouvernement",
+    "origin": [
+      [
+        "src/components/Landscape.js",
+        13
+      ]
+    ]
+  },
+  "About this site": {
+    "translation": "À propos de ce site",
+    "origin": [
+      [
+        "src/components/WoodMark.js",
+        17
+      ]
+    ]
+  },
+  "Action": {
+    "translation": "Action",
+    "origin": [
+      [
+        "src/components/AppointmentsList.js",
+        51
+      ]
+    ]
+  },
+  "Add location": {
+    "translation": "Ajouter un emplacement",
+    "origin": [
+      [
+        "src/components/ItemModal.js",
+        70
+      ],
+      [
+        "src/components/ItemModal.js",
+        92
+      ]
+    ]
+  },
+  "Admin": {
+    "translation": "Admin",
+    "origin": [
+      [
+        "src/components/auth/RegisterModal.js",
+        135
+      ]
+    ]
+  },
+  "Application Number": {
+    "translation": "Numéro d'application",
+    "origin": [
+      [
+        "src/components/AppointmentsList.js",
+        48
+      ]
+    ]
+  },
+  "Date": {
+    "translation": "date",
+    "origin": [
+      [
+        "src/components/AppointmentsList.js",
+        49
+      ]
+    ]
+  },
+  "Email": {
+    "translation": "Couriel",
+    "origin": [
+      [
+        "src/components/auth/LoginModal.js",
+        99
+      ],
+      [
+        "src/components/auth/RegisterModal.js",
+        112
+      ]
+    ]
+  },
+  "Government of Canada": {
+    "translation": "Gouvernement du Canada",
+    "origin": [
+      [
+        "src/components/HeaderLogo.js",
+        14
+      ]
+    ]
+  },
+  "Language selection": {
+    "translation": "Sélection de la langue",
+    "origin": [
+      [
+        "src/components/HeaderLang.js",
+        52
+      ]
+    ]
+  },
+  "Login": {
+    "translation": "Identifiant",
+    "origin": [
+      [
+        "src/components/auth/LoginModal.js",
+        90
+      ],
+      [
+        "src/components/auth/LoginModal.js",
+        121
+      ]
+    ]
+  },
+  "Logout": {
+    "translation": "Déconnecter",
+    "origin": [
+      [
+        "src/components/auth/Logout.js",
+        20
+      ]
+    ]
+  },
+  "Mobile applications": {
+    "translation": "Centre mobile",
+    "origin": [
+      [
+        "src/components/WoodMark.js",
+        20
+      ]
+    ]
+  },
+  "Name": {
+    "translation": "Nom",
+    "origin": [
+      [
+        "src/components/auth/RegisterModal.js",
+        102
+      ]
+    ]
+  },
+  "Not required": {
+    "translation": "Non requis",
+    "origin": [
+      [
+        "src/components/AppointmentsList.js",
+        18
+      ]
+    ]
+  },
+  "Office": {
+    "translation": "Bureau",
+    "origin": [
+      [
+        "src/components/auth/RegisterModal.js",
+        138
+      ]
+    ]
+  },
+  "Password": {
+    "translation": "Mot de passe",
+    "origin": [
+      [
+        "src/components/auth/LoginModal.js",
+        109
+      ],
+      [
+        "src/components/auth/RegisterModal.js",
+        122
+      ]
+    ]
+  },
+  "Privacy": {
+    "translation": "Confidentialité",
+    "origin": [
+      [
+        "src/components/WoodMark.js",
+        23
+      ]
+    ]
+  },
+  "Private/Accessible": {
+    "translation": "Privé/accessible",
+    "origin": [
+      [
+        "src/components/AppointmentsList.js",
+        50
+      ]
+    ]
+  },
+  "Read-Only": {
+    "translation": "Lecture seulement",
+    "origin": [
+      [
+        "src/components/auth/RegisterModal.js",
+        134
+      ]
+    ]
+  },
+  "Register": {
+    "translation": "S'inscrire",
+    "origin": [
+      [
+        "src/components/auth/RegisterModal.js",
+        91
+      ],
+      [
+        "src/components/auth/RegisterModal.js",
+        95
+      ],
+      [
+        "src/components/auth/RegisterModal.js",
+        149
+      ]
+    ]
+  },
+  "Required": {
+    "translation": "Requis",
+    "origin": [
+      [
+        "src/components/AppointmentsList.js",
+        17
+      ]
+    ]
+  },
+  "Role": {
+    "translation": "Rôle",
+    "origin": [
+      [
+        "src/components/auth/RegisterModal.js",
+        132
+      ]
+    ]
+  },
+  "SAB Admin": {
+    "translation": "Administrateur du SAB",
+    "origin": [
+      [
+        "src/components/AppNavbar.js",
+        77
+      ]
+    ]
+  },
+  "Skip to \"About government\"": {
+    "translation": "Passer à «&#160;À propos de ce site&#160;»",
+    "origin": [
+      [
+        "src/components/Header.js",
+        19
+      ]
+    ]
+  },
+  "Skip to main content": {
+    "translation": "Passer au contenu principal",
+    "origin": [
+      [
+        "src/components/Header.js",
+        18
+      ]
+    ]
+  },
+  "Social media": {
+    "translation": "Médias sociaux",
+    "origin": [
+      [
+        "src/components/WoodMark.js",
+        19
+      ]
+    ]
+  },
+  "Switch to basic HTML version": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/Header.js",
+        20
+      ]
+    ]
+  },
+  "Symbol of the Government of Canada": {
+    "translation": "Symbole du gouvernement du Canada",
+    "origin": [
+      [
+        "src/components/WoodMark.js",
+        32
+      ]
+    ]
+  },
+  "Terms and conditions": {
+    "translation": "Avis",
+    "origin": [
+      [
+        "src/components/WoodMark.js",
+        22
+      ]
+    ]
+  },
+  "Top of page": {
+    "translation": "Haut de la page",
+    "origin": [
+      [
+        "src/components/WoodMark.js",
+        27
+      ]
+    ]
+  },
+  "lease log in to manage items": {
+    "translation": "Veuillez vous connecter pour gérer les rendez-vous",
+    "origin": [
+      [
+        "src/components/ItemModal.js",
+        74
+      ]
+    ]
+  }
+}

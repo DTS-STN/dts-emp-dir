@@ -1,0 +1,30 @@
+{
+  "Login": {
+    "origin": [
+      [
+        "src/components/auth/LoginModal.js",
+        90
+      ],
+      [
+        "src/components/auth/LoginModal.js",
+        121
+      ]
+    ]
+  },
+  "Email": {
+    "origin": [
+      [
+        "src/components/auth/LoginModal.js",
+        99
+      ]
+    ]
+  },
+  "Password": {
+    "origin": [
+      [
+        "src/components/auth/LoginModal.js",
+        109
+      ]
+    ]
+  }
+}
