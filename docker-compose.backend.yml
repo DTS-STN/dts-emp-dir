@@ -5,11 +5,11 @@ services:
     image: mongo
     restart: always
     environment:
-      MONGO_INITDB_ROOT_USERNAME: ${REACT_APP_MONGO_USER}
-      MONGO_INITDB_ROOT_PASSWORD: ${REACT_APP_MONGO_PASS}
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASS}
     networks:
       employee-dev:
-        ipv4_address: 97.1.1.1
+        ipv4_address: ${MONGO_IP}
 networks:
   employee-dev:
     ipam:
