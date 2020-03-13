@@ -3,15 +3,14 @@ const express = require('express');
 var cors = require('cors');
 const bodyParser = require('body-parser');
 const logger = require('morgan');
-const Data = require('./data');
-
 const API_PORT = 3001;
 const app = express();
 app.use(cors());
 const router = express.Router();
 
+const dbRoute = `mongodb://${process.env.MONGO_USER}:${process.env.MONGO_PASS}@${process.env.MONGO_URL}/emp`;
 
-const dbRoute = 'xxxxconnstring....';
+console.log('TEST' + `${process.env.REACT_APP_MONGO_USER}`);
 
 mongoose.connect(dbRoute, {useNewUrlParser: true});
 
