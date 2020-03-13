@@ -4,8 +4,13 @@
   "private": true,
   "dependencies": {
     "@lingui/react": "^2.9.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.4",
+    "morgan": "^1.9.1",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
+    "react-native-dotenv": "^0.2.0",
     "react-redux": "^7.2.0",
     "react-scripts": "3.4.0",
     "redux": "^4.0.5",
@@ -21,7 +26,7 @@
     "cypress": "^4.1.0"
   },
   "scripts": {
-    "start-db": "cd backend && docker-compose up -d && docker run mongo:latest",
+    "start-db": "docker-compose -f docker-compose.backend.yml up -d && docker run mongo:latest",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
