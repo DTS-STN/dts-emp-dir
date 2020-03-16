@@ -1,12 +1,14 @@
 FROM node:10-alpine
 LABEL maintainer="-"
 
-COPY . /src
+COPY /client /client
 
-WORKDIR /src
+WORKDIR /client
 
-RUN npm install --quiet --production
+RUN yarn install --quiet 
+RUN yarn add serve --quiet
+RUN yarn build
 
 EXPOSE 3000
 
-ENTRYPOINT [ "npm", "start" ]
+ENTRYPOINT [ "yarn", "start-prod" ]
