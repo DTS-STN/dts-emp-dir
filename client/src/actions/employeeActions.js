@@ -10,15 +10,17 @@ export const getEmployees= ( id ) => dispatch => {
 };
 
 // Get Employee Details 
-export const getEmployeeDetails = ( employee ) => {
+export const getEmployeeDetails = ( id ) => dispatch => {
+  dispatch(setLoading());
   return {
     type: GET_EMPLOYEE_DETAILS,
-    payload: employee
+    payload: id
   };
 };
 
 // Get Employee Organization
-export const getEmployeeOrg = ( employee ) => {
+export const getEmployeeOrg = ( employee ) => dispatch => {
+  dispatch(setLoading());
   return {
     type: GET_EMPLOYEE_ORG,
     payload: employee
