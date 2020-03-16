@@ -1,23 +1,15 @@
-import { GET_EMPLOYEE_BY_ID, GET_EMPLOYEE_BY_NAME, GET_EMPLOYEE_DETAILS, GET_EMPLOYEE_ORG, EMPLOYEE_LOADING} from './types';
+import { GET_EMPLOYEES, GET_EMPLOYEE_DETAILS, GET_EMPLOYEE_ORG, EMPLOYEE_LOADING} from './types';
 
-// Get Employee by Id 
-export const getEmployeeById = ( id ) => dispatch => {
+// Get Employees
+export const getEmployees= ( id ) => dispatch => {
   dispatch(setLoading());
   return {
-    type: GET_EMPLOYEE_BY_ID,
+    type: GET_EMPLOYEES,
     payload: id 
   };
 };
 
-// Get Employee by Id 
-export const getEmployeeByName = ( employee ) => {
-  return {
-    type: GET_EMPLOYEE_BY_NAME,
-    payload: employee
-  };
-};
-
-// Get Employee by Id 
+// Get Employee Details 
 export const getEmployeeDetails = ( employee ) => {
   return {
     type: GET_EMPLOYEE_DETAILS,
@@ -25,7 +17,7 @@ export const getEmployeeDetails = ( employee ) => {
   };
 };
 
-// Get Employee by Id 
+// Get Employee Organization
 export const getEmployeeOrg = ( employee ) => {
   return {
     type: GET_EMPLOYEE_ORG,
