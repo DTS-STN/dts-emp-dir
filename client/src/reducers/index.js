@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
 import errorReducer from './errorReducer';
-import languageReducer from './languageReducer'
+import languageReducer from './languageReducer';
+import employeeReducer from './employeeReducer';
 
 export default combineReducers({
   language: languageReducer,
-  error: errorReducer
+  error: errorReducer,
+  employee: employeeReducer
 });
