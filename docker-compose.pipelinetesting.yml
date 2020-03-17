@@ -1,14 +1,22 @@
 version: '3.3'
 services: 
-  dts-emp-dir:
+  dts-emp-dir-client:
     build:
       context: ./_client
       dockerfile: Dockerfile
-    container_name: dts-emp-dir
+    container_name: dts-emp-dir-client
     restart: always
     ports:
      - "80:3000"
-    
+
+  dts-emp-dir-server:
+    build:
+      context: ./_server
+      dockerfile: Dockerfile
+    container_name: dts-emp-dir-server
+    restart: always
+    ports:
+      - "6001:6001"
 
   e2e:
     build:
@@ -16,12 +24,8 @@ services:
       dockerfile: Dockerfile
     container_name: cypress
     depends_on:
-      - dts-emp-dir
-    # note: inside e2e container, the network allows accessing
-    # "web" host under name "web" (in this project it's 'dts-emp-dir' and not web)
-    # so "curl http://web" would return whatever the webserver
-    # in the "web" container is cooking
-    # see https://docs.docker.com/compose/networking/
+      - dts-emp-dir-client
+      - dts-emp-dir-server
     environment:
       - CYPRESS_baseUrl=http://localhost
     command: npx cypress run --reporter junit --reporter-options "mochaFile=/cypress/report/test-output-[hash].xml"
