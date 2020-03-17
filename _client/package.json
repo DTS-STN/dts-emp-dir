@@ -1,5 +1,5 @@
 {
-  "name": "dts-emp-dir-client",
+  "name": "client",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -11,7 +11,8 @@
     "react-redux": "^7.2.0",
     "react-scripts": "3.4.0",
     "redux": "^4.0.5",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "serve": "^11.3.0"
   },
   "devDependencies": {
     "@lingui/cli": "^2.9.1",

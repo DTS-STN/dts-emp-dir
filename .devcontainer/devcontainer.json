@@ -1,7 +1,7 @@
 {
     "name": "React VS Code Remote Container",
     "dockerFile": "Dockerfile",
-    "appPort": 3000,
+    "appPort": 7000,
     "extensions": [
 		"CoenraadS.bracket-pair-colorizer",
 		"Tyriar.sort-lines"
@@ -10,6 +10,6 @@
         "terminal.integrated.shell.linux": "/bin/zsh"
     },
     "postCreateCommand": "yarn",
-    "runArgs": ["--network=dtsempdir_employee-dev", "--name=vsc-dev-emp"]
+    "runArgs": ["--network=server_employee-dev", "--name=vsc-dev-emp"]
     
 }

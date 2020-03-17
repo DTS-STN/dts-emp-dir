@@ -1,0 +1,34 @@
+version: '3.3'
+services: 
+  dts-emp-dir-client:
+    build:
+      context: ./_client
+      dockerfile: Dockerfile
+    container_name: dts-emp-dir-client
+    restart: always
+    ports:
+     - "80:3000"
+
+  dts-emp-dir-server:
+    build:
+      context: ./_server
+      dockerfile: Dockerfile
+    container_name: dts-emp-dir-server
+    restart: always
+    ports:
+      - "6001:6001"
+
+  e2e:
+    build:
+      context: ./_testing
+      dockerfile: Dockerfile
+    container_name: cypress
+    depends_on:
+      - dts-emp-dir-client
+      - dts-emp-dir-server
+    environment:
+      - CYPRESS_baseUrl=http://localhost
+    command: npx cypress run --reporter junit --reporter-options "mochaFile=/cypress/report/test-output-[hash].xml"
+    network_mode: 'host'
+    volumes:
+      - "./cypress/reports:/cypress/report"

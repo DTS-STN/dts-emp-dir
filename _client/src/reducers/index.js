@@ -5,6 +5,6 @@ import employeeReducer from './employeeReducer';
 
 export default combineReducers({
   language: languageReducer,
-  error: errorReducer,
-  employee: employeeReducer
+  employees: employeeReducer,
+  error: errorReducer
 });
