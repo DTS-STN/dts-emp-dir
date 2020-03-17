@@ -3,7 +3,7 @@ LABEL maintainer="-"
 
 COPY . ./
 
-WORKDIR ./client
+WORKDIR ./
 
 RUN yarn install --quiet && \
     yarn add serve --quiet && \

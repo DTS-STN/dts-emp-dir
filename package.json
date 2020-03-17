@@ -3,9 +3,12 @@
     "version": "0.1.0",
     "private": true,
     "scripts": {
-        "start-localdb": "docker-compose -f docker-compose.localdatabase.yml up",
+        "start-localdb": "yarn --cwd ./_server/ start-localdb",
         "start-client": "yarn --cwd ./_client/ start",
         "start-server": "yarn --cwd ./_server/ start",
         "start-unit-test": "yarn --cwd ./_client/ test"
+    },
+    "dependencies": {
+        "dotenv": "^8.2.0"
     }
-  }
+}
