@@ -1,33 +1,52 @@
-import React from 'react';
-//import { connect } from 'react-redux';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { getEmployees } from '../actions/getEmployees';
+import PropTypes from 'prop-types';
 
-function SearchBox () {
+class SearchBox extends Component {
 
-  function handleSubmit(event) {
-    event.preventDefault();
-    getEmployees (event.text)
+  static propTypes = {
+    getEmployees: PropTypes.func.isRequired,
+    employees: PropTypes.object.isRequired
+  };
+
+  componentDidMount() {
+    this.props.getEmployees();
+  }
+  
+  constructor(props) {
+    super(props);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.state = {
+      from: undefined,
+      to: undefined,
+    };
   }
 
-  
-  return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label>Search by : </label>
-          <input type="text" name="title" value="" placeholder="Enter search criteria" onChange={handleSubmit} className="form-control" /> 
-        </div>
-        <div className="btn-group">
-          <button type="submit" className="btn btn-primary">Update</button>
-        </div>
-      </form>
-    </div>
-  )
+  handleSubmit(event) {
+    event.preventDefault();
+    getEmployees (event.value)
+  }
+
+  render() {
+    return (
+      <div>
+        <form onSubmit={this.handleSubmit()}>
+          <div className="form-group">
+            <label>Search by : </label>
+            <input type="text" name="title" value="" placeholder="Enter search criteria" onChange={this.handleSubmit()} className="form-control" /> 
+          </div>
+          <div className="btn-group">
+            <button type="submit" className="btn btn-primary">Update</button>
+          </div>
+        </form>
+      </div>
+    )
+  }
 }
 
-// const mapStateToProps = state => ({
-//   employees: state.employees,
-// });
+const mapStateToProps = state => ({
+  searchfor: state.searchfor,
+});
 
-//export default connect( mapStateToProps, { getEmployees } )(SearchBox);
-export default SearchBox;
+export default connect( mapStateToProps, { getEmployees } )(SearchBox);
