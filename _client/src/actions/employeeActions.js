@@ -4,7 +4,7 @@ import { returnErrors } from './errorActions';
 
 
 // Get Employees
-export const getEmployees= ( searchTerm ) => dispatch => {
+export const getEmployees = ( searchTerm ) => dispatch => {
   dispatch(setLoading());
   axios
     .get('/api/items')
