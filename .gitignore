@@ -6,7 +6,9 @@
 .pnp.js
 
 # testing
-/coverage
+/_testing/node_modules
+/_client/node_modules
+/_server/node_modules
 
 # production
 /build
@@ -21,6 +23,6 @@
 .env.production.local
 
 npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+*yarn-debug.log*
+*yarn-error.log*
 /.vscode
