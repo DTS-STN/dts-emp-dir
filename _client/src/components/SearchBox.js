@@ -1,31 +1,27 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getEmployees } from '../actions/getEmployees';
-import PropTypes from 'prop-types';
+//import PropTypes from 'prop-types';
 
 class SearchBox extends Component {
 
-  static propTypes = {
-    getEmployees: PropTypes.func.isRequired,
-    employees: PropTypes.object.isRequired
-  };
+  // static propTypes = {
+  //   getEmployees: PropTypes.func.isRequired,
+  //   employees: PropTypes.object.isRequired
+  // };
 
-  componentDidMount() {
-    this.props.getEmployees();
-  }
-  
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.state = {
-      from: undefined,
-      to: undefined,
+      searchfor: undefined
     };
   }
 
   handleSubmit(event) {
     event.preventDefault();
-    getEmployees (event.value)
+    this.setState({searchfor: event.value})
+    this.props.getEmployees (event.value)
   }
 
   render() {
