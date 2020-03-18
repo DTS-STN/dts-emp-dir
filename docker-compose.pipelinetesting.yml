@@ -4,15 +4,21 @@ services:
     build:
       context: ./_client
       dockerfile: Dockerfile
+      args: 
+        API_SERVER_URL: ${API_SERVER_URL}
     container_name: dts-emp-dir-client
     restart: always
     ports:
      - "80:3000"
 
+
   dts-emp-dir-server:
     build:
       context: ./_server
       dockerfile: Dockerfile
+      args: 
+        MONGO_CONN_STRING: ${MONGO_CONN_STRING}
+        NODE_SERVER_PORT: ${NODE_SERVER_PORT}
     container_name: dts-emp-dir-server
     restart: always
     ports:
