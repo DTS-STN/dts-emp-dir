@@ -573,6 +573,25 @@ ul, ol {
   max-width: 90px;
   text-align: center;
 }
+/* Grid alike  */
+.col-3 {
+  text-align: center;
+  width: 20%;
+}
+.grdPhoto {
+  height: auto;
+  width: auto;
+  max-height: 150px;
+  max-width: 261px;
+  text-align: center;
+}
+.bluebg{
+  color: white;
+  background-color: dodgerblue;
+}
+.cardbg {
+  bacxkground-color: #bac8d6;
+}
 .bunder {
   border-bottom: 1px solid #295376;
   height: 30px;

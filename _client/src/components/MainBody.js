@@ -4,10 +4,11 @@ import { connect } from 'react-redux';
 import SearchBar from './SearchBar';
 import DisplayResults from './DisplayResults';
 
+
 class MainBody extends Component {
   render() {
 
-    const { language } = this.props.language
+    //const { language } = this.props.language
 
     return (
       <div id="mainbody">
