@@ -1,6 +1,6 @@
 import React from 'react'
 import WoodMark from './WoodMark';
-// import Landscape from './Landscape';   NOTE: this is the blue section of the canada layout 
+import Landscape from './Landscape';   //NOTE: this is the blue section of the canada layout 
 
 
 class Footer extends React.Component {
@@ -11,7 +11,7 @@ class Footer extends React.Component {
       <div className="global-footer">
         <footer id="wb-info">
 
-          {/* <Landscape />  */}
+          <Landscape /> 
           <WoodMark />
 
         </footer>
