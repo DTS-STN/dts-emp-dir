@@ -11,6 +11,9 @@ class MainBody extends Component {
 
     return (
       <div id="mainbody">
+        
+        <h1 className="bluetitle">Employee Directory</h1>
+
         {/* <Container> */}
         <SearchBox />
         <DisplayResults />
