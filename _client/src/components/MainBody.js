@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 //import { Container } from 'reactstrap';   NOTE: ReactStrap is kind of a version of bootstrap it will need to be added to the package.json
 import { connect } from 'react-redux';
 import SearchBox from './SearchBox';
+import DisplayResults from './DisplayResults';
 
 class MainBody extends Component {
   render() {
@@ -12,13 +13,13 @@ class MainBody extends Component {
       <div id="mainbody">
         {/* <Container> */}
         <SearchBox />
+        <DisplayResults />
 
-
-        <div className="row">
-          <div className="col-md-12" Style="background-color: #e6f2ff; min-height: 450px; text-align: center;">
+        {/* <div className="row placeholder">
+          <div className="col-md-12 pt-3 bolder">
             <p>Your current language is : {language === 'fr' ? 'French' : 'English'} </p>
           </div>
-        </div>
+        </div> */}
 
         {/* </Container> */}
       </div>

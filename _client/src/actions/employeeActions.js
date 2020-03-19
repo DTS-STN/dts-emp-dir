@@ -1,22 +1,25 @@
-import axios from 'axios';
-import { GET_EMPLOYEES, GET_EMPLOYEE_DETAILS, GET_EMPLOYEE_ORG, EMPLOYEE_LOADING} from './types';
-import { returnErrors } from './errorActions';
+//import axios from 'axios';
+import { GET_EMPLOYEES, GET_EMPLOYEE_DETAILS, GET_EMPLOYEE_ORG, EMPLOYEE_LOADING } from './types';
+//import { returnErrors } from './errorActions';
 
 
 // Get Employees
 export const getEmployees = ( searchTerm ) => dispatch => {
-  dispatch(setLoading());
-  axios
-    .get('/api/items')
-    .then(res =>
-      dispatch({
-        type: GET_EMPLOYEES,
-        payload: searchTerm
-      })
-    )
-    .catch(err =>
-      dispatch(returnErrors(err.response.data, err.response.status))
-    );
+  return {
+    type: GET_EMPLOYEES
+  }
+  // dispatch(setLoading());
+  // axios
+  //   .get('/locations')
+  //   .then(res =>
+  //     dispatch({
+  //       type: GET_EMPLOYEES,
+  //       payload: res.data
+  //     })
+  //   )
+  //   .catch(err =>
+  //     dispatch(returnErrors(err.response.data, err.response.status))
+  //   );
 };
 
 // Get Employee Details 
@@ -42,3 +45,4 @@ export const setLoading = () => {
     type: EMPLOYEE_LOADING
   };
 };
+

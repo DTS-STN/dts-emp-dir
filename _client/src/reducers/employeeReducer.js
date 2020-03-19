@@ -1,7 +1,16 @@
 import { GET_EMPLOYEES, GET_EMPLOYEE_DETAILS, GET_EMPLOYEE_ORG, EMPLOYEE_LOADING } from '../actions/types'
+import url1 from '../assets/harry.png'
+import url2 from '../assets/rocky.png'
+import url3 from '../assets/anne.png'
+import url4 from '../assets/cate.png'
 
 const initialState = {
-  employee: [],
+  data: [
+    { id: 1, photo: url1, name: 'Harry Bosch', title:'Detective', department: 'ESDC' , organization: 'ITTB' , phone:'613-999-9999' },
+    { id: 2, photo: url2, name: 'Rocky Balboa', title:'Boxer',  department: 'ESDC' , organization: 'ITTB' , phone: '613-999-8888' },
+    { id: 3, photo: url3, name: 'Anne Hathaway', title:'Actress / Jewelry thief',  department: 'ESDC' , organization: 'ITTB' , phone: '613-999-6666' },
+    { id: 4, photo: url4, name: 'Cate Blanchett', title:'Wizard Galadriel',  department: 'ESDC' , organization: 'ITTB' , phone: '613-999-7777' }
+  ],
   loading: false
 };
 
@@ -10,19 +19,18 @@ export default function(state = initialState, action) {
     case GET_EMPLOYEES:
       return {
         ...state,
-        employee: action.payload,
         loading: false
       };
     case GET_EMPLOYEE_DETAILS:
       return {
         ...state,
-        employee: action.payload,
+        
         loading: false
       };
     case GET_EMPLOYEE_ORG:
       return {
         ...state,
-        employee: action.payload,
+        
         loading: false
       };
     case EMPLOYEE_LOADING:
