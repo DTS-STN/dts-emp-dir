@@ -18,6 +18,7 @@ services:
       dockerfile: Dockerfile
       args: 
         MONGO_CONN_STRING: ${MONGO_CONN_STRING}
+        MONGO_DB_PASS: ${MONGO_DB_PASS}
         NODE_SERVER_PORT: ${NODE_SERVER_PORT}
     container_name: dts-emp-dir-server
     restart: always

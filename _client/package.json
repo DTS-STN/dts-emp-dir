@@ -16,7 +16,9 @@
   "devDependencies": {
     "@lingui/cli": "^2.9.1",
     "@lingui/loader": "^2.9.1",
-    "@lingui/macro": "^2.9.1"
+    "@lingui/macro": "^2.9.1",
+    "@testing-library/react": "^10.0.1",
+    "@testing-library/jest-dom": "^5.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
