@@ -15,7 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: run docker compose
-      run: MONGO_CONN_STRING=${{ secrets.MONGO_CONN_STRING }} NODE_SERVER_PORT=${{ secrets.NODE_SERVER_PORT }} API_SERVER_URL=${{ secrets.API_SERVER_URL }} docker-compose -f docker-compose.pipelinetesting.yml up --exit-code-from e2e
+      run: MONGO_DB_PASS=${{ secrets.MONGO_DB_PASS }} MONGO_CONN_STRING=${{ secrets.MONGO_CONN_STRING }} NODE_SERVER_PORT=${{ secrets.NODE_SERVER_PORT }} API_SERVER_URL=${{ secrets.API_SERVER_URL }} docker-compose -f docker-compose.pipelinetesting.yml up --exit-code-from e2e
 
   publish_Deploy:
     name: Publish and Deploy

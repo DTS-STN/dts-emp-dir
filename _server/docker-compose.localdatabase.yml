@@ -6,7 +6,7 @@ services:
     restart: always
     environment:
       MONGO_INITDB_ROOT_USERNAME: ${MONGO_USER}
-      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASS}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_DB_PASS}
     networks:
       employee-dev:
         ipv4_address: ${MONGO_IP}
