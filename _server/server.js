@@ -1,7 +1,6 @@
 
 const express = require('express');
 const mongoose = require('mongoose');
-// const cors = require('cors');
 const router = require('./routes/index');
 
 const app = express();
@@ -11,10 +10,9 @@ const MONGO_CONN_STRING = process.env.MONGO_CONN_STRING.replace('-password-', pr
 //development verification
 if (process.env.NODE_ENV == 'development'){ console.log(`CONNECTION STRING ${MONGO_CONN_STRING} : SERVER PORT ${PORT}`);}
 
-// //app.use(cors());
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
-//app.use('/api', router);
+app.use('/api', router);
 
 mongoose.connect(`${MONGO_CONN_STRING}`, { useNewUrlParser: true, useFindAndModify: false });
 mongoose.connection.once('open', function(){
@@ -24,6 +22,6 @@ mongoose.connection.on('error', function(error) {
     console.log('Mongoose Connection Error : ' + error);
 });
 
-app.get('/', function(request, response) { response.send('Hello World!') });
-
+//test to see if api is running
+app.get('/', function(request, response) { response.send(`API is live. Port: ${PORT} and database is: ${process.env.MONGO_CONN_STRING}`) });
 app.listen(PORT, function() { console.log(`Server listening on port ${PORT}`) });
