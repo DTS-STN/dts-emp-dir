@@ -15,8 +15,8 @@ class WoodMark extends React.Component {
             <nav className="col-md-10 ftr-urlt-lnk">
               <I18n>{({ i18n }) => (<h2 className="wb-inv">{i18n._(t`About this site`)}</h2>)}</I18n>
               <ul>
-                {/* <li><I18n>{({ i18n }) => (<a href="https://www.canada.ca/en/social.html">{i18n._(t`Social media`)}</a>)}</I18n></li> */}
-                {/* <li><I18n>{({ i18n }) => (<a href="https://www.canada.ca/en/mobile.html">{i18n._(t`Mobile applications`)}</a>)}</I18n></li> */}
+                <li><I18n>{({ i18n }) => (<a href="https://www.canada.ca/en/social.html">{i18n._(t`Social media`)}</a>)}</I18n></li>
+                <li><I18n>{({ i18n }) => (<a href="https://www.canada.ca/en/mobile.html">{i18n._(t`Mobile applications`)}</a>)}</I18n></li>
                 <li><I18n>{({ i18n }) => (<a href="https://www.canada.ca/en/government/about.html">{i18n._(t`About Canada.ca`)}</a>)}</I18n></li>
                 <li><I18n>{({ i18n }) => (<a href="https://www.canada.ca/en/transparency/terms.html">{i18n._(t`Terms and conditions`)}</a>)}</I18n></li>
                 <li><I18n>{({ i18n }) => (<a href="https://www.canada.ca/en/transparency/privacy.html">{i18n._(t`Privacy`)}</a>)}</I18n></li>
