@@ -8,17 +8,7 @@
         "start-server": "yarn --cwd ./_server/ start",
         "start-unit-test": "yarn --cwd ./_client/ test"
     },
-    "husky": {
-        "hooks": {
-          "pre-commit": "yarn run lint && yarn test",
-          "pre-push": "yarn run lint && yarn test"
-        }
-      },
     "dependencies": {
         "dotenv": "^8.2.0"
-    },
-    "devDependencies": {
-        "husky": "^4.2.3",
-        "cross-env": "^7.0.2"
-      }
+    }
 }
