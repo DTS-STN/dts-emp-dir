@@ -46,5 +46,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:4011/"
+  "proxy": "http://goc-dir-api.dev.dts-stn.com/"
 }
