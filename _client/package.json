@@ -19,7 +19,9 @@
     "@lingui/loader": "^2.9.1",
     "@lingui/macro": "^2.9.1",
     "@testing-library/jest-dom": "^5.1.1",
-    "@testing-library/react": "^10.0.1"
+    "@testing-library/react": "^10.0.1",
+    "husky": "^4.2.3",
+    "cross-env": "^7.0.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -30,6 +32,12 @@
     "add-locale": "lingui add-locale",
     "extract": "lingui extract",
     "compile": "lingui compile"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn run lint && yarn test",
+      "pre-push": "yarn run lint && yarn test"
+    }
   },
   "eslintConfig": {
     "extends": "react-app"
