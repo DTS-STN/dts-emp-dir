@@ -18,8 +18,8 @@
     "@lingui/cli": "^2.9.1",
     "@lingui/loader": "^2.9.1",
     "@lingui/macro": "^2.9.1",
-    "@testing-library/react": "^10.0.1",
-    "@testing-library/jest-dom": "^5.1.1"
+    "@testing-library/jest-dom": "^5.1.1",
+    "@testing-library/react": "^10.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -29,7 +29,9 @@
     "eject": "react-scripts eject",
     "add-locale": "lingui add-locale",
     "extract": "lingui extract",
-    "compile": "lingui compile"
+    "compile": "lingui compile",
+    "pre-commit": "yarn test --env=jsdom --watchAll=false && yarn eslint src",
+    "pre-push": "yarn test --env=jsdom --watchAll=false && yarn eslint src"
   },
   "eslintConfig": {
     "extends": "react-app"
