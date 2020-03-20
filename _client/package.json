@@ -30,8 +30,8 @@
     "add-locale": "lingui add-locale",
     "extract": "lingui extract",
     "compile": "lingui compile",
-    "pre-commit": "yarn test --env=jsdom --watchAll=false --coverage && yarn eslint src",
-    "pre-push": "yarn test --env=jsdom --watchAll=false --coverage && yarn eslint src"
+    "pre-commit": "yarn test --env=jsdom --watchAll=false && yarn eslint src",
+    "pre-push": "yarn test --env=jsdom --watchAll=false && yarn eslint src"
   },
   "eslintConfig": {
     "extends": "react-app"
