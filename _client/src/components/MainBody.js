@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import SearchBar from './SearchBar';
 import DisplayResults from './DisplayResults';
 
+
 class MainBody extends Component {
   render() {
 

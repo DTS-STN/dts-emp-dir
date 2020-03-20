@@ -69,7 +69,6 @@ class HeaderLang extends React.Component {
   }
 }
 
-
 const mapStateToProps = state => ({
   language: state.language
 });
