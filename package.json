@@ -19,5 +19,4 @@
           "pre-push": "cd _client && yarn eslint src && yarn test"
         }
       }
-
 }
