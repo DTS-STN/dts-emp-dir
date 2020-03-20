@@ -1,14 +1,22 @@
 {
-    "name": "testing",
-    "version": "0.1.0",
-    "private": true,
-    "scripts": {
-        "start-localdb": "yarn --cwd ./_server/ start-localdb",
-        "start-client": "yarn --cwd ./_client/ start",
-        "start-server": "yarn --cwd ./_server/ start",
-        "start-unit-test": "yarn --cwd ./_client/ test"
-    },
-    "dependencies": {
-        "dotenv": "^8.2.0"
+  "name": "testing",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start-localdb": "yarn --cwd ./_server/ start-localdb",
+    "start-client": "yarn --cwd ./_client/ start",
+    "start-server": "yarn --cwd ./_server/ start",
+    "start-unit-test": "yarn --cwd ./_client/ test"
+  },
+  "dependencies": {
+    "cross-env": "^7.0.2",
+    "dotenv": "^8.2.0",
+    "husky": "^4.2.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn --cwd ./_client/ pre-commit ",
+      "pre-push": "yarn --cwd ./_client/ pre-push"
     }
+  }
 }

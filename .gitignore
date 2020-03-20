@@ -9,6 +9,7 @@
 /_testing/node_modules
 /_client/node_modules
 /_server/node_modules
+/_client/coverage
 
 # production
 /build
