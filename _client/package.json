@@ -29,7 +29,9 @@
     "eject": "react-scripts eject",
     "add-locale": "lingui add-locale",
     "extract": "lingui extract",
-    "compile": "lingui compile"
+    "compile": "lingui compile",
+    "pre-commit": "CI=true yarn test && yarn eslint src",
+    "pre-push": "CI=true yarn test && yarn eslint src"
   },
   "eslintConfig": {
     "extends": "react-app"
