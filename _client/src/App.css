@@ -574,23 +574,40 @@ ul, ol {
   text-align: center;
 }
 /* Grid alike  */
-.col-3 {
+
+
+.cardRow {
+  margin: 0;
+  padding: 0;
+}
+.empCard {
+  display: inline-block;
+  list-style-type: none;
+  float: left;
   text-align: center;
-  width: 20%;
+  width: 24%;
+  height: 350px;
+  background-color: lavender;
+  box-shadow: 1px 5px #a79b9f;
+
+  border-radius: 15px;
+  margin: 0 .7em .7em 0;
+  padding-top: 10px;
+}
+.photoHeight {
+  min-height:150px;
+  background-color: aliceblue;
 }
 .grdPhoto {
-  height: auto;
+  height: 150px;
+  min-height: 150px;
   width: auto;
-  max-height: 150px;
   max-width: 261px;
   text-align: center;
 }
 .bluebg{
   color: white;
   background-color: dodgerblue;
-}
-.cardbg {
-  bacxkground-color: #bac8d6;
 }
 .bunder {
   border-bottom: 1px solid #295376;
