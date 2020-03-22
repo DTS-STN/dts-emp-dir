@@ -7,14 +7,15 @@ class DisplayResultsRows extends Component {
   
   static propTypes = {
     getEmployees: PropTypes.func.isRequired,
-    employees: PropTypes.object.isRequired
+    filteredData: PropTypes.array.isRequired
   };
 
   constructor(props) {
     super(props);
 
     this.state = {
-      data: ''
+      data: '',
+      filteredData: ''
     };
   }
 
@@ -23,8 +24,6 @@ class DisplayResultsRows extends Component {
   }
 
   render() {
-    
-    const { data } = this.props.employees;
     
     return (
       <React.Fragment>
@@ -38,7 +37,7 @@ class DisplayResultsRows extends Component {
               <div className="col-2x bunder">Phone</div>
             </div>
             {/* Grid Data rows */}
-            {data.map( ({ id, photo, name, title, department, organization, phone }) => (
+            {this.props.filteredData.map( ({ id, photo, name, title, department, organization, phone }) => (
               <div className="row pb-1" id={id} >
                 <div className="col-1x"><img className="empPhoto" src={photo} alt={name} /></div>
                 <div className="col-2x">{name} <br /> <span className="smaller">{title}</span> </div>
@@ -53,9 +52,21 @@ class DisplayResultsRows extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  employees: state.employees
-});
+const mapStateToProps = state => {
+  const { data, searchTerm }  = state.employees
+  return {
+    filteredData: data.reduce((acc, obj) => {
+      if (obj.name.includes(searchTerm) ||
+      obj.title.includes(searchTerm) ||
+      obj.department.includes(searchTerm) ||
+      obj.organization.includes(searchTerm) ||
+      obj.phone.includes(searchTerm)) {
+        acc.push(obj)
+      }
+      return acc
+    }, [])
+  }
+};
 
 export default connect( mapStateToProps, { getEmployees } )(DisplayResultsRows);
 

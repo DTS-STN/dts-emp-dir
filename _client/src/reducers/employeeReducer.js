@@ -1,4 +1,4 @@
-import { GET_EMPLOYEES, GET_EMPLOYEE_DETAILS, GET_EMPLOYEE_ORG, EMPLOYEE_LOADING } from '../actions/types'
+import { GET_EMPLOYEES, GET_EMPLOYEE_DETAILS, GET_EMPLOYEE_ORG, EMPLOYEE_LOADING, FILTER_EMPLOYEES } from '../actions/types'
 import url1 from '../assets/harry.png'
 import url2 from '../assets/rocky.png'
 import url3 from '../assets/anne.png'
@@ -11,6 +11,7 @@ const initialState = {
     { id: 3, photo: url1, name: 'Harry Bosch', title:'Detective', department: 'ESDC' , organization: 'ITTB' , phone:'613-999-9999' },
     { id: 4, photo: url2, name: 'Rocky Balboa', title:'Boxer',  department: 'ESDC' , organization: 'ITTB' , phone: '613-999-8888' }
   ],
+  searchTerm: '',
   loading: false
 };
 
@@ -37,7 +38,12 @@ export default function(state = initialState, action) {
       return {
         ...state,
         loading: true
-      }
+      };
+    case FILTER_EMPLOYEES:
+      return Object.assign({}, state, {
+        ...state,
+        searchTerm: action.searchTerm
+      })
     default:
       return state;
   }

@@ -1,5 +1,5 @@
 //import axios from 'axios';
-import { GET_EMPLOYEES, GET_EMPLOYEE_DETAILS, GET_EMPLOYEE_ORG, EMPLOYEE_LOADING } from './types';
+import { GET_EMPLOYEES, GET_EMPLOYEE_DETAILS, GET_EMPLOYEE_ORG, EMPLOYEE_LOADING, FILTER_EMPLOYEES } from './types';
 //import { returnErrors } from './errorActions';
 
 
@@ -39,6 +39,14 @@ export const getEmployeeOrg = ( employee ) => dispatch => {
     payload: employee
   };
 };
+
+// Filter Employee List
+export const filterEmployees = ( searchTerm  ) => {
+  return {
+    type: FILTER_EMPLOYEES,
+    searchTerm
+  }
+}
 
 export const setLoading = () => {
   return {
