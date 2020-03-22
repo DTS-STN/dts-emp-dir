@@ -27,26 +27,28 @@ class DisplayResultsRows extends Component {
     
     return (
       <React.Fragment>
-        <div>
+        <table className="bolder pb-3 mt-4 align-center">
           {/* Grid Row column titles */}
-            <div className="row bolder pb-3 mt-4" >
-              <div className="col-1x bunder">Photo</div>
-              <div className="col-2x bunder">Name</div>
-              <div className="col-2x bunder">Department</div>
-              <div className="col-2x bunder">Organization</div>
-              <div className="col-2x bunder">Phone</div>
-            </div>
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Department</th>
+                <th scope="col">Organization</th>
+                <th scope="col">Phone</th>
+              </tr>
+            </thead>
             {/* Grid Data rows */}
-            {this.props.filteredData.map( ({ id, photo, name, title, department, organization, phone }) => (
-              <div className="row pb-1" id={id} >
-                <div className="col-1x"><img className="empPhoto" src={photo} alt={name} /></div>
-                <div className="col-2x">{name} <br /> <span className="smaller">{title}</span> </div>
-                <div className="col-2x">{department}</div>
-                <div className="col-2x">{organization}</div>
-                <div className="col-2x">{phone}</div>
-              </div>
-            ))} 
-        </div>
+            <tbody>
+              {this.props.filteredData.map( ({ id, name, title, department, organization, phone }) => (
+                <tr id={id} >
+                  <td >{name} <br /> <span className="smaller">{title}</span> </td>
+                  <td >{department}</td>
+                  <td >{organization}</td>
+                  <td >{phone}</td>
+                </tr>
+              ))} 
+            </tbody>
+        </table>
       </React.Fragment>
     )
   }

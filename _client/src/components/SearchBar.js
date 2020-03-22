@@ -12,7 +12,8 @@ class SearchBar extends React.Component {
             <SearchBox />
           </div>
           <div className="col-1">
-            <DisplayIcons />
+            &nbsp;
+            {/* <DisplayIcons /> */}
           </div>
         </div>
       </React.Fragment>
