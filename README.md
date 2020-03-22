@@ -6,10 +6,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
-### `yarn start-localdb`
-
-IMPORTANT! This must be run from an external terminal (not in your dev container). Runs the local Mongo DB in a container.  Configuration for the DB is taken from your local .env file. 
-
 ### `yarn start-client`
 
 Calls the 'yarn start' script from the _client folder.  Starts up a dev instance.
