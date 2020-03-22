@@ -54,7 +54,7 @@ class DisplayResultsGrid extends Component {
             ))}
           </ul>
 
-          <div className="clear: both"> &nbsp; </div>> 
+          <div className="clear: both"> &nbsp; </div>
 
         </div>
       </React.Fragment>
