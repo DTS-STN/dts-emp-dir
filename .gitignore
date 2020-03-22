@@ -10,6 +10,7 @@
 /_client/node_modules
 /_server/node_modules
 /_client/coverage
+/cypress
 
 # production
 /build
