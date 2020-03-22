@@ -47,7 +47,7 @@ jobs:
         docker tag mtscontainers.azurecr.io/dts-emp-dir-server:latest mtscontainers.azurecr.io/dts-emp-dir-server:$BUILD_NUMBER
         docker push mtscontainers.azurecr.io/dts-emp-dir-server:latest
         docker push mtscontainers.azurecr.io/dts-emp-dir-server:$BUILD_NUMBER
-     - name: curl
-       uses: wei/curl@v1
-       with:
-         args: -X POST https://jenkins.esdc.online/job/dts-emp-dir-client/buildWithParameters?docker_tag=$BUILD_NUMBER --user jenkinsbot:${{ secrets.DTS_JENKINS_TOKEN }}
+    - name: curl
+      uses: wei/curl@v1
+      with:
+        args: -X POST https://jenkins.esdc.online/job/dts-emp-dir-client/buildWithParameters?docker_tag=$BUILD_NUMBER --user jenkinsbot:${{ secrets.DTS_JENKINS_TOKEN }}
