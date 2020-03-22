@@ -1,14 +1,10 @@
-# DTS Employee Directory Proof of Concept
+# ESDC and Government of Canada - Essential Employee Directory
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
 In the project directory, you can run:
-
-### `yarn start-localdb`
-
-IMPORTANT! This must be run from an external terminal (not in your dev container). Runs the local Mongo DB in a container.  Configuration for the DB is taken from your local .env file. 
 
 ### `yarn start-client`
 
