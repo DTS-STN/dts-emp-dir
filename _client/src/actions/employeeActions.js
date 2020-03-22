@@ -10,7 +10,7 @@ export const getEmployees = ( searchTerm ) => dispatch => {
   }
   // dispatch(setLoading());
   // axios
-  //   .get('/locations')
+  //   .get('/api/employees')
   //   .then(res =>
   //     dispatch({
   //       type: GET_EMPLOYEES,

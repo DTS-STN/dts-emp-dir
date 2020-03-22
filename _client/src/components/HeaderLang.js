@@ -28,9 +28,6 @@ class HeaderLang extends React.Component {
   
   componentDidMount() {
     this.setState({ language : this.props.language})
-    console.log( 'HeaderLang initial language : ')
-    console.log(this.props.language)
-    console.log(this.state.language)
   }
 
   handleClick() {
@@ -42,9 +39,7 @@ class HeaderLang extends React.Component {
 
   render() {
     const { lang } = this.props.language;
-    console.log( 'HeaderLang render language : ')
-    console.log( this.props.language )
-    console.log( this.state.language )
+
     return (
       <React.Fragment>
       <section id="wb-lng" className="text-right">
