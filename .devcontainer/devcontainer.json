@@ -10,6 +10,6 @@
         "terminal.integrated.shell.linux": "/bin/zsh"
     },
     "postCreateCommand": "yarn",
-    "runArgs": ["--network=server_employee-dev", "--name=vsc-dev-emp"]
+    // "runArgs": ["--network=server_employee-dev", "--name=vsc-dev-emp"]
     
 }
