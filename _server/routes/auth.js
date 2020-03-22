@@ -8,7 +8,7 @@ const auth = require('../../middleware/auth');
 
 // User Model
 const User = require('../../models/User');
-
+console.log(User)
 // @route   POST api/auth
 // @desc    Auth user
 // @access  Public
@@ -55,10 +55,10 @@ router.post('/', (req, res) => {
 // @route   GET api/auth/user
 // @desc    Get user data
 // @access  Private
-router.get('/user', auth, (req, res) => {
-  User.findById(req.user.id)
-    .select('-password')
-    .then(user => res.json(user));
-});
+// router.get('/user', auth, (req, res) => {
+//   User.findById(req.user.id)
+//     .select('-password')
+//     .then(user => res.json(user));
+// });
 
 module.exports = router;

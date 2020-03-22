@@ -32,20 +32,22 @@ class DisplayResultsRows extends Component {
           {/* Grid Row column titles */}
             <thead>
               <tr>
-                <th scope="col">Name</th>
-                <th scope="col">Department</th>
-                <th scope="col">Organization</th>
-                <th scope="col">Phone</th>
+                <th scope="col">FirstName</th>
+                <th scope="col">LastName</th>
+                <th scope="col">Division</th>
+                <th scope="col">WorkPhone</th>
+                <th scope="col">CellPhone</th>
               </tr>
             </thead>
             {/* Grid Data rows */}
             <tbody>
-              {data.map( ({ id, name, title, department, organization, phone }) => (
+              {data.map( ({ id, FirstName, LastName, JobTitle, Division, WorkPhone, CellPhone }) => (
                 <tr id={id} >
-                  <td >{name} <br /> <span className="smaller">{title}</span> </td>
-                  <td >{department}</td>
-                  <td >{organization}</td>
-                  <td >{phone}</td>
+                  <td >{FirstName} <br /> <span className="smaller">{LastName}</span> </td>
+                  <td >{JobTitle}</td>
+                  <td >{Division}</td>
+                  <td >{WorkPhone}</td>
+                  <td >{CellPhone}</td>
                 </tr>
               ))} 
             </tbody>

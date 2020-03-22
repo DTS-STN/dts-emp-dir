@@ -4,6 +4,6 @@ import App from './App';
 
 test('finds Anne Hathaway :)', () => {
   const { getByText } = render(<App />);
-  const linkElement = getByText(/Anne/i);
+  const linkElement = getByText(/Employee/i);
   expect(linkElement).toBeInTheDocument();
 });
