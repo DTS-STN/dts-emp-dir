@@ -1,4 +1,4 @@
-# DTS Employee Directory Proof of Concept
+# ESDC and Government of Canada - Essential Employee Directory
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
