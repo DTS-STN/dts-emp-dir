@@ -3,12 +3,13 @@ import { SET_EMPLOYEES, GET_EMPLOYEE_DETAILS, GET_EMPLOYEE_ORG, EMPLOYEE_LOADING
 const initialState = {
   data: [],
   searchTerm: '',
-  loading: false
+  loading: true
 };
 
 export default function(state = initialState, action) {
   switch (action.type) {
     case SET_EMPLOYEES:
+      console.log(action.payload)
       return Object.assign({}, state, {
         ...state,
         data: action.payload,

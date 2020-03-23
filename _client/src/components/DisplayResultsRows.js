@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { fetchEmployees } from '../actions/employeeActions'
+import { getVisibleEmployees } from '../selectors/index.js'
 
 class DisplayResultsRows extends Component {
   
   static propTypes = {
     filteredData: PropTypes.array.isRequired,
-    fetchEmployees: PropTypes.func.isRequired
+    fetchEmployees: PropTypes.func.isRequired,
+    loading: PropTypes.bool.isRequired
   };
 
   constructor(props) {
@@ -17,57 +19,44 @@ class DisplayResultsRows extends Component {
       data: '',
       filteredData: ''
     };
-
-    this.filterData = this.filterData.bind(this);
-  }
-
-  filterData(event) {
-    this.setState ({ searchTerm: event.target.value }) 
   }
 
   componentDidMount() {
     this.props.fetchEmployees();
+    console.log(this.props.loading)
   }
 
   render() {
-    
-    // const { data } = this.props.employees;
-    // const filterBy = this.state.searchTerm;
 
-    // console.log (filterBy)
+    let loading = this.props.loading
     
     return (
       <React.Fragment>
-
-        {/* <div className="row"> 
-          <div className="col-4">
-            <input type="text" name="search" placeholder="Enter search criteria" onChange={ this.filterData } className="form-control" />
-          </div>
-          <div className="col-8">&nbsp;</div>
-        </div> */}
-
         <table className="pb-3 mt-4 mb-4 align-center">
           {/* Grid Row column titles */}
             <thead>
               <tr>
-                <th scope="col">FirstName</th>
-                <th scope="col">LastName</th>
-                <th scope="col">JobTitle</th>
-                <th scope="col">Division</th>
-                <th scope="col">WorkPhone</th>
-                <th scope="col">CellPhone</th>
+                <th scope="col">Display Name</th>
+                <th scope="col">Job Title</th>
+                <th scope="col">Company</th>
+                <th scope="col">Email</th>
+                <th scope="col">Telephone Number</th>
+                <th scope="col">City</th>
+                <th scope="col">Province</th>
               </tr>
             </thead>
             {/* Grid Data rows */}
             <tbody>
-              {this.props.filteredData.map( ({ id, FirstName, LastName, JobTitle, Division, WorkPhone, CellPhone }) => (
-                <tr id={id} key={id}>
-                  <td >{FirstName} </td>
-                  <td >{LastName} </td>
-                  <td >{JobTitle}</td>
-                  <td >{Division}</td>
-                  <td >{WorkPhone}</td>
-                  <td >{CellPhone}</td>
+              {loading ? null :
+              this.props.filteredData.map((employee) => (
+                <tr id={employee._id} key={employee._id}>
+                  <td >{employee.DisplayName} </td>
+                  <td >{employee.JobTitle} </td>
+                  <td >{employee.Company}</td>
+                  <td >{employee.Email}</td>
+                  <td >{employee.telephoneNumber}</td>
+                  <td >{employee.gcCityEnglish}</td>
+                  <td >{employee.gcProvinceNameEnglish}</td>
                 </tr>
               ))} 
             </tbody>
@@ -78,20 +67,9 @@ class DisplayResultsRows extends Component {
 }
 
 const mapStateToProps = state => {
-  const { data, searchTerm }  = state.employees
-  
   return {
-    filteredData: data.filter( data => data.LastName !== null ).reduce((acc, obj) => {
-      if (obj.FirstName.toLowerCase().includes(searchTerm) ||
-          obj.LastName.toLowerCase().includes(searchTerm) ||
-          obj.JobTitle.toLowerCase().includes(searchTerm) ||
-          obj.Division.toLowerCase().includes(searchTerm) ||
-          obj.CellPhone.replace(/-/gi,'').includes(searchTerm) ||
-          obj.WorkPhone.replace(/-/gi,'').includes(searchTerm)) {
-        acc.push(obj)
-      }
-      return acc
-    }, [])
+    filteredData: getVisibleEmployees(state),
+    loading: state.employees.loading
   }
 };
 
