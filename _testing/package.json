@@ -3,9 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "cypress": "^4.2.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2"
+    "@testing-library/user-event": "^7.1.2",
+    "axe-core": "^3.5.2",
+    "cypress": "^4.2.0",
+    "cypress-axe": "^0.5.3"
   }
 }
