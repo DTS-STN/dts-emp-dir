@@ -6,7 +6,9 @@
     "start-localdb": "yarn --cwd ./_server/ start-localdb",
     "start-client": "yarn --cwd ./_client/ start",
     "start-server": "yarn --cwd ./_server/ start",
-    "start-unit-test": "yarn --cwd ./_client/ test"
+    "start-unit-test": "yarn --cwd ./_client/ test",
+    "cypress:open": "yarn --cwd ./_testing/ npx cypress open",
+    "cy-dev-test": "yarn --cwd ./_testing/ cypress run"
   },
   "dependencies": {
     "cross-env": "^7.0.2",

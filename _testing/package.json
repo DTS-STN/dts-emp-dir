@@ -2,6 +2,11 @@
   "name": "testing",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "cypress:open": "npx cypress open",
+  "cypress:run": "cypress run"
+  
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
@@ -10,4 +15,6 @@
     "cypress": "^4.2.0",
     "cypress-axe": "^0.5.3"
   }
+ 
+
 }
