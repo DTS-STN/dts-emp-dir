@@ -21,8 +21,8 @@ class SearchBox extends Component {
   }
 
   handleChange = (event) => {
-    this.setState({ search : event.target.value })
-    this.props.filterEmployees(event.target.value)
+    this.setState({ search : event.target.value.toLowerCase() })
+    this.props.filterEmployees(event.target.value.toLowerCase())
   }
 
   handleSubmit = (event) => {
