@@ -1,13 +1,19 @@
-//import axios from 'axios';
-import { GET_EMPLOYEES, GET_EMPLOYEE_DETAILS, GET_EMPLOYEE_ORG, EMPLOYEE_LOADING } from './types';
-//import { returnErrors } from './errorActions';
+import axios from 'axios';
+import { SET_EMPLOYEES, GET_EMPLOYEE_DETAILS, GET_EMPLOYEE_ORG, EMPLOYEE_LOADING, FILTER_EMPLOYEES } from './types';
+import { returnErrors } from './errorActions';
 
 
 // Get Employees
-export const getEmployees = ( searchTerm ) => dispatch => {
-  return {
-    type: GET_EMPLOYEES
-  }
+export const fetchEmployees = () => dispatch => {
+  dispatch(setLoading());
+  return axios
+    .get('/api/employees')
+    .then( res =>
+      dispatch(setEmployees(res.data))
+    )
+    .catch(err =>
+      dispatch(returnErrors(err.response.data, err.response.status))
+    );
   // dispatch(setLoading());
   // axios
   //   .get('/api/employees')
@@ -21,6 +27,14 @@ export const getEmployees = ( searchTerm ) => dispatch => {
   //     dispatch(returnErrors(err.response.data, err.response.status))
   //   );
 };
+
+// Set Employees
+export const setEmployees = (data) => {
+  return {
+    type: SET_EMPLOYEES,
+    payload: data
+  }
+}
 
 // Get Employee Details 
 export const getEmployeeDetails = ( id ) => dispatch => {
@@ -39,6 +53,14 @@ export const getEmployeeOrg = ( employee ) => dispatch => {
     payload: employee
   };
 };
+
+// Filter Employee List
+export const filterEmployees = ( searchTerm  ) => {
+  return {
+    type: FILTER_EMPLOYEES,
+    searchTerm
+  }
+}
 
 export const setLoading = () => {
   return {
