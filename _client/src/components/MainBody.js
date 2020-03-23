@@ -13,7 +13,7 @@ class MainBody extends Component {
     return (
       <div id="mainbody">
 
-        <h1 className="bluetitle">Employee Directory</h1>
+        <h1 id="banner-ed" className="bluetitle">Employee Directory</h1>
 
         {/* <Container> */}
         <SearchBar />
