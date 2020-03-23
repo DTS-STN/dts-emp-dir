@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getEmployees } from '../actions/employeeActions';
 import PropTypes from 'prop-types';
 
 import phoneIcon from '../assets/phone.png';
@@ -20,11 +19,6 @@ class DisplayResultsGrid extends Component {
       data: ''
     };
   }
-
-  componentDidMount() {
-    this.props.getEmployees();
-  }
-
 
   render() {
     
@@ -66,5 +60,5 @@ const mapStateToProps = state => ({
   employees: state.employees
 });
 
-export default connect( mapStateToProps, { getEmployees } )(DisplayResultsGrid);
+export default connect(mapStateToProps)(DisplayResultsGrid);
 
