@@ -24,7 +24,7 @@
     "@testing-library/react": "^10.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "PORT=3000 react-scripts start",
     "start-prod": "serve -l 3000 -s build",
     "build": "react-scripts build",
     "test": "react-scripts test",
