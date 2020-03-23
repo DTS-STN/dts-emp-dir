@@ -14,8 +14,15 @@ class DisplayResultsRows extends Component {
     super(props);
 
     this.state = {
-      data: ''
+      localData: '',
+      searchTerm: ''
     };
+
+    this.filterData = this.filterData.bind(this);
+  }
+
+  filterData(event) {
+    this.setState ({ searchTerm: event.target.value }) 
   }
 
   componentDidMount() {
@@ -25,15 +32,27 @@ class DisplayResultsRows extends Component {
   render() {
     
     const { data } = this.props.employees;
+    const filterBy = this.state.searchTerm;
+
+    console.log (filterBy)
     
     return (
       <React.Fragment>
-        <table className="bolder pb-3 mt-4 align-center">
+
+        <div className="row"> 
+          <div className="col-4">
+            <input type="text" name="search" placeholder="Enter search criteria" onChange={ this.filterData } className="form-control" />
+          </div>
+          <div className="col-8">&nbsp;</div>
+        </div>
+
+        <table className="pb-3 mt-4 mb-4 align-center">
           {/* Grid Row column titles */}
             <thead>
               <tr>
                 <th scope="col">FirstName</th>
                 <th scope="col">LastName</th>
+                <th scope="col">JobTitle</th>
                 <th scope="col">Division</th>
                 <th scope="col">WorkPhone</th>
                 <th scope="col">CellPhone</th>
@@ -42,8 +61,9 @@ class DisplayResultsRows extends Component {
             {/* Grid Data rows */}
             <tbody>
               {data.map( ({ id, FirstName, LastName, JobTitle, Division, WorkPhone, CellPhone }) => (
-                <tr id={id} >
-                  <td >{FirstName} <br /> <span className="smaller">{LastName}</span> </td>
+                <tr id={id} key={id}>
+                  <td >{FirstName}</td>
+                  <td >{LastName}</td>
                   <td >{JobTitle}</td>
                   <td >{Division}</td>
                   <td >{WorkPhone}</td>

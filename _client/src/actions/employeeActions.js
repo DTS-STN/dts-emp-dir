@@ -7,7 +7,7 @@ import { returnErrors } from './errorActions';
 export const getEmployees = ( ) => dispatch => {
   dispatch(setLoading());
   axios
-    .get('/employees')
+    .get('/api/employees')
     .then(res =>
       dispatch({
         type: GET_EMPLOYEES,

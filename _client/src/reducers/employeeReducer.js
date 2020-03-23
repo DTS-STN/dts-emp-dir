@@ -1,8 +1,4 @@
 import { GET_EMPLOYEES, GET_EMPLOYEE_DETAILS, GET_EMPLOYEE_ORG, EMPLOYEE_LOADING } from '../actions/types'
-// import url1 from '../assets/harry.png'
-// import url2 from '../assets/rocky.png'
-// import url3 from '../assets/anne.png'
-// import url4 from '../assets/cate.png'
 
 const initialState = {
   // data: [
@@ -20,6 +16,7 @@ export default function(state = initialState, action) {
     case GET_EMPLOYEES:
       return {
         ...state,
+        data: action.payload,
         loading: false
       };
     case GET_EMPLOYEE_DETAILS:
