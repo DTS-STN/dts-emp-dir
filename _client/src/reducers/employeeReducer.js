@@ -1,4 +1,4 @@
-import { GET_EMPLOYEES, GET_EMPLOYEE_DETAILS, GET_EMPLOYEE_ORG, EMPLOYEE_LOADING, FILTER_EMPLOYEES } from '../actions/types'
+import { SET_EMPLOYEES, GET_EMPLOYEE_DETAILS, GET_EMPLOYEE_ORG, EMPLOYEE_LOADING, FILTER_EMPLOYEES } from '../actions/types'
 import url1 from '../assets/harry.png'
 import url2 from '../assets/rocky.png'
 import url3 from '../assets/anne.png'
@@ -17,21 +17,20 @@ const initialState = {
 
 export default function(state = initialState, action) {
   switch (action.type) {
-    case GET_EMPLOYEES:
-      return {
+    case SET_EMPLOYEES:
+      return Object.assign({}, state, {
         ...state,
+        data: action.payload,
         loading: false
-      };
+      });
     case GET_EMPLOYEE_DETAILS:
       return {
         ...state,
-        
         loading: false
       };
     case GET_EMPLOYEE_ORG:
       return {
         ...state,
-        
         loading: false
       };
     case EMPLOYEE_LOADING:
@@ -43,7 +42,7 @@ export default function(state = initialState, action) {
       return Object.assign({}, state, {
         ...state,
         searchTerm: action.searchTerm
-      })
+      });
     default:
       return state;
   }
