@@ -33,7 +33,7 @@ class SearchBox extends Component {
   render() {
     return (
       <div className="row mt-4">
-        <form className="col-3" onSubmit={this.handleSubmit}>
+        <form className="col-6" onSubmit={this.handleSubmit}>
           <div className="form-group">
             <input type="text" name="search" placeholder="Enter search criteria" onChange={ this.handleChange } className="form-control" />
           </div>
