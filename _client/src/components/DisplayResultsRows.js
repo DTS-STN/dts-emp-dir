@@ -62,9 +62,11 @@ const mapStateToProps = state => {
   const { data, searchTerm }  = state.employees
   console.log('inside mapstoprops')
   console.log (data);
+
+  const removeNull = data.filter( data => data.LastName !== null )
   
   return {
-    filteredData: data.reduce((acc, obj) => {
+    filteredData: removeNull.reduce((acc, obj) => {
       if (obj.FirstName.toLowerCase().includes(searchTerm) ||
           obj.LastName.toLowerCase().includes(searchTerm) ||
           obj.JobTitle.toLowerCase().includes(searchTerm) ||
