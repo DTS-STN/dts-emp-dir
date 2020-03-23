@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { fetchEmployees } from '../actions/employeeActions'
+import { getVisibleEmployees } from '../selectors/index.js'
 
 class DisplayResultsRows extends Component {
   
   static propTypes = {
     filteredData: PropTypes.array.isRequired,
-    fetchEmployees: PropTypes.func.isRequired
+    fetchEmployees: PropTypes.func.isRequired,
+    loading: PropTypes.object.isRequired
   };
 
   constructor(props) {
@@ -17,35 +19,19 @@ class DisplayResultsRows extends Component {
       data: '',
       filteredData: ''
     };
-
-    this.filterData = this.filterData.bind(this);
-  }
-
-  filterData(event) {
-    this.setState ({ searchTerm: event.target.value }) 
   }
 
   componentDidMount() {
     this.props.fetchEmployees();
+    console.log(this.props.filteredData)
   }
 
   render() {
-    
-    // const { data } = this.props.employees;
-    // const filterBy = this.state.searchTerm;
 
-    // console.log (filterBy)
+    let { loading } = this.props.loading
     
     return (
       <React.Fragment>
-
-        {/* <div className="row"> 
-          <div className="col-4">
-            <input type="text" name="search" placeholder="Enter search criteria" onChange={ this.filterData } className="form-control" />
-          </div>
-          <div className="col-8">&nbsp;</div>
-        </div> */}
-
         <table className="pb-3 mt-4 mb-4 align-center">
           {/* Grid Row column titles */}
             <thead>
@@ -61,7 +47,8 @@ class DisplayResultsRows extends Component {
             </thead>
             {/* Grid Data rows */}
             <tbody>
-              {this.props.filteredData.map((employee) => (
+              {loading ? null :
+              this.props.filteredData.map((employee) => (
                 <tr id={employee._id} key={employee._id}>
                   <td >{employee.DisplayName} </td>
                   <td >{employee.JobTitle} </td>
@@ -80,22 +67,9 @@ class DisplayResultsRows extends Component {
 }
 
 const mapStateToProps = state => {
-  const { data, searchTerm }  = state.employees
-  
   return {
-    filteredData: data.filter( data => data.DisplayName !== null ).reduce((acc, obj) => {
-      console.log(obj)
-      if (obj.DisplayName.toLowerCase().includes(searchTerm) ||
-          obj.JobTitle.toLowerCase().includes(searchTerm) ||
-          obj.Company.toLowerCase().includes(searchTerm) ||
-          obj.Email.toLowerCase().includes(searchTerm) ||
-          obj.telephoneNumber.replace(/-/gi,'').includes(searchTerm) ||
-          obj.gcCityEnglish.toLowerCase().includes(searchTerm) ||
-          obj.gcProvinceEnglish.toLowerCase().includes(searchTerm)) {
-        acc.push(obj)
-      }
-      return acc
-    }, [])
+    filteredData: getVisibleEmployees(state),
+    loading: state.employees
   }
 };
 
