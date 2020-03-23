@@ -34,7 +34,7 @@ class DisplayResultsRows extends Component {
             {/* Grid Data rows */}
             <tbody>
               {this.props.filteredData.map( ({ id, name, title, department, organization, phone }) => (
-                <tr id={id} >
+                <tr id={id} key={id}>
                   <td >{name} <br /> <span className="smaller">{title}</span> </td>
                   <td >{department}</td>
                   <td >{organization}</td>
