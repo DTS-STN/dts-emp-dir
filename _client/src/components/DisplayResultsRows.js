@@ -50,24 +50,26 @@ class DisplayResultsRows extends Component {
           {/* Grid Row column titles */}
             <thead>
               <tr>
-                <th scope="col">FirstName</th>
-                <th scope="col">LastName</th>
-                <th scope="col">JobTitle</th>
-                <th scope="col">Division</th>
-                <th scope="col">WorkPhone</th>
-                <th scope="col">CellPhone</th>
+                <th scope="col">Display Name</th>
+                <th scope="col">Job Title</th>
+                <th scope="col">Company</th>
+                <th scope="col">Email</th>
+                <th scope="col">Telephone Number</th>
+                <th scope="col">City</th>
+                <th scope="col">Province</th>
               </tr>
             </thead>
             {/* Grid Data rows */}
             <tbody>
-              {this.props.filteredData.map( ({ id, FirstName, LastName, JobTitle, Division, WorkPhone, CellPhone }) => (
-                <tr id={id} key={id}>
-                  <td >{FirstName} </td>
-                  <td >{LastName} </td>
-                  <td >{JobTitle}</td>
-                  <td >{Division}</td>
-                  <td >{WorkPhone}</td>
-                  <td >{CellPhone}</td>
+              {this.props.filteredData.map((employee) => (
+                <tr id={employee._id} key={employee._id}>
+                  <td >{employee.DisplayName} </td>
+                  <td >{employee.JobTitle} </td>
+                  <td >{employee.Company}</td>
+                  <td >{employee.Email}</td>
+                  <td >{employee.telephoneNumber}</td>
+                  <td >{employee.gcCityEnglish}</td>
+                  <td >{employee.gcProvinceNameEnglish}</td>
                 </tr>
               ))} 
             </tbody>
@@ -81,13 +83,15 @@ const mapStateToProps = state => {
   const { data, searchTerm }  = state.employees
   
   return {
-    filteredData: data.filter( data => data.LastName !== null ).reduce((acc, obj) => {
-      if (obj.FirstName.toLowerCase().includes(searchTerm) ||
-          obj.LastName.toLowerCase().includes(searchTerm) ||
+    filteredData: data.filter( data => data.DisplayName !== null ).reduce((acc, obj) => {
+      console.log(obj)
+      if (obj.DisplayName.toLowerCase().includes(searchTerm) ||
           obj.JobTitle.toLowerCase().includes(searchTerm) ||
-          obj.Division.toLowerCase().includes(searchTerm) ||
-          obj.CellPhone.replace(/-/gi,'').includes(searchTerm) ||
-          obj.WorkPhone.replace(/-/gi,'').includes(searchTerm)) {
+          obj.Company.toLowerCase().includes(searchTerm) ||
+          obj.Email.toLowerCase().includes(searchTerm) ||
+          obj.telephoneNumber.replace(/-/gi,'').includes(searchTerm) ||
+          obj.gcCityEnglish.toLowerCase().includes(searchTerm) ||
+          obj.gcProvinceEnglish.toLowerCase().includes(searchTerm)) {
         acc.push(obj)
       }
       return acc
