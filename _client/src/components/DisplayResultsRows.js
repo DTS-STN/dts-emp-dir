@@ -52,11 +52,11 @@ const mapStateToProps = state => {
   const { data, searchTerm }  = state.employees
   return {
     filteredData: data.reduce((acc, obj) => {
-      if (obj.name.includes(searchTerm) ||
-      obj.title.includes(searchTerm) ||
-      obj.department.includes(searchTerm) ||
-      obj.organization.includes(searchTerm) ||
-      obj.phone.includes(searchTerm)) {
+      if (obj.name.toLowerCase().includes(searchTerm) ||
+      obj.title.toLowerCase().includes(searchTerm) ||
+      obj.department.toLowerCase().includes(searchTerm) ||
+      obj.organization.toLowerCase().includes(searchTerm) ||
+      obj.phone.toLowerCase().includes(searchTerm)) {
         acc.push(obj)
       }
       return acc
