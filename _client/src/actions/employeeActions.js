@@ -58,7 +58,7 @@ export const getEmployeeOrg = ( employee ) => dispatch => {
 export const filterEmployees = ( searchTerm  ) => {
   return {
     type: FILTER_EMPLOYEES,
-    payload: searchTerm
+    searchTerm
   }
 }
 
