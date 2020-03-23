@@ -9,7 +9,7 @@ class DisplayResultsRows extends Component {
   static propTypes = {
     filteredData: PropTypes.array.isRequired,
     fetchEmployees: PropTypes.func.isRequired,
-    loading: PropTypes.object.isRequired
+    loading: PropTypes.bool.isRequired
   };
 
   constructor(props) {
@@ -28,7 +28,7 @@ class DisplayResultsRows extends Component {
 
   render() {
 
-    let { loading } = this.props.loading
+    let loading = this.props.loading
     
     return (
       <React.Fragment>
@@ -69,7 +69,7 @@ class DisplayResultsRows extends Component {
 const mapStateToProps = state => {
   return {
     filteredData: getVisibleEmployees(state),
-    loading: state.employees
+    loading: state.employees.loading
   }
 };
 
