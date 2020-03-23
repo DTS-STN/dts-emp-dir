@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { fetchEmployees } from '../actions/employeeActions'
 
 class DisplayResultsRows extends Component {
   
   static propTypes = {
-    filteredData: PropTypes.array.isRequired
+    filteredData: PropTypes.array.isRequired,
+    fetchEmployees: PropTypes.func.isRequired
   };
 
   constructor(props) {
@@ -17,6 +19,10 @@ class DisplayResultsRows extends Component {
     };
   }
 
+  componentDidMount() {
+    this.props.fetchEmployees();
+  }
+
   render() {
     
     return (
@@ -26,19 +32,23 @@ class DisplayResultsRows extends Component {
             <thead>
               <tr>
                 <th scope="col">Name</th>
-                <th scope="col">Department</th>
-                <th scope="col">Organization</th>
-                <th scope="col">Phone</th>
+                <th scope="col">LastName</th>
+                <th scope="col">JobTitle</th>
+                <th scope="col">Division</th>
+                <th scope="col">WorkPhone</th>
+                <th scope="col">CellPhone</th>
               </tr>
             </thead>
             {/* Grid Data rows */}
             <tbody>
-              {this.props.filteredData.map( ({ id, name, title, department, organization, phone }) => (
+              {this.props.filteredData.map( ({ id, FirstName, LastName, JobTitle, Division, WorkPhone, CellPhone }) => (
                 <tr id={id} key={id}>
-                  <td >{name} <br /> <span className="smaller">{title}</span> </td>
-                  <td >{department}</td>
-                  <td >{organization}</td>
-                  <td >{phone}</td>
+                  <td >{FirstName} </td>
+                  <td >{LastName} </td>
+                  <td >{JobTitle}</td>
+                  <td >{Division}</td>
+                  <td >{WorkPhone}</td>
+                  <td >{CellPhone}</td>
                 </tr>
               ))} 
             </tbody>
@@ -50,13 +60,17 @@ class DisplayResultsRows extends Component {
 
 const mapStateToProps = state => {
   const { data, searchTerm }  = state.employees
+  console.log('inside mapstoprops')
+  console.log (data);
+  
   return {
     filteredData: data.reduce((acc, obj) => {
-      if (obj.name.toLowerCase().includes(searchTerm) ||
-      obj.title.toLowerCase().includes(searchTerm) ||
-      obj.department.toLowerCase().includes(searchTerm) ||
-      obj.organization.toLowerCase().includes(searchTerm) ||
-      obj.phone.replace(/-/gi,'').includes(searchTerm)) {
+      if (obj.FirstName.toLowerCase().includes(searchTerm) ||
+          obj.LastName.toLowerCase().includes(searchTerm) ||
+          obj.JobTitle.toLowerCase().includes(searchTerm) ||
+          obj.Division.toLowerCase().includes(searchTerm) ||
+          obj.CellPhone.replace(/-/gi,'').includes(searchTerm) ||
+          obj.WorkPhone.replace(/-/gi,'').includes(searchTerm)) {
         acc.push(obj)
       }
       return acc
@@ -64,5 +78,5 @@ const mapStateToProps = state => {
   }
 };
 
-export default connect(mapStateToProps)(DisplayResultsRows);
+export default connect(mapStateToProps, { fetchEmployees } )(DisplayResultsRows);
 

@@ -1,15 +1,27 @@
-//import axios from 'axios';
+import axios from 'axios';
 import { SET_EMPLOYEES, GET_EMPLOYEE_DETAILS, GET_EMPLOYEE_ORG, EMPLOYEE_LOADING, FILTER_EMPLOYEES } from './types';
-//import { returnErrors } from './errorActions';
+import { returnErrors } from './errorActions';
 
 
 // Get Employees
 export const fetchEmployees = () => dispatch => {
+  dispatch(setLoading());
+  return axios
+    .get('/api/employees')
+    .then( res =>
+      dispatch(setEmployees(res.data))
+    )
+    .catch(err =>
+      dispatch(returnErrors(err.response.data, err.response.status))
+    );
   // dispatch(setLoading());
-  // return axios
+  // axios
   //   .get('/api/employees')
-  //   .then(({ data }) =>
-  //     dispatch(setEmployees(data))
+  //   .then(res =>
+  //     dispatch({
+  //       type: GET_EMPLOYEES,
+  //       payload: res.data
+  //     })
   //   )
   //   .catch(err =>
   //     dispatch(returnErrors(err.response.data, err.response.status))
