@@ -79,10 +79,9 @@ class DisplayResultsRows extends Component {
 
 const mapStateToProps = state => {
   const { data, searchTerm }  = state.employees
-  const removeNull = data.filter( data => data.LastName !== null )
   
   return {
-    filteredData: removeNull.reduce((acc, obj) => {
+    filteredData: data.filter( data => data.LastName !== null ).reduce((acc, obj) => {
       if (obj.FirstName.toLowerCase().includes(searchTerm) ||
           obj.LastName.toLowerCase().includes(searchTerm) ||
           obj.JobTitle.toLowerCase().includes(searchTerm) ||
