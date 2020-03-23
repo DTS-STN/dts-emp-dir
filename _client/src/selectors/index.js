@@ -7,8 +7,9 @@ export const getVisibleEmployees = createSelector(
   [ getSearchTerm, getEmployees ],
   (searchTerm, employees) => {
     return employees.reduce((acc, obj) => {
-      console.log(obj)
-      if(employees[0] !== null && obj.DisplayName !== null){
+      console.log(acc)
+      if(obj.DisplayName !== undefined && obj.DisplayName !== null) {
+        console.log(obj.DisplayName)
         if (obj.DisplayName.toLowerCase().includes(searchTerm) ||
             obj.JobTitle.toLowerCase().includes(searchTerm) ||
             obj.Company.toLowerCase().includes(searchTerm) ||
