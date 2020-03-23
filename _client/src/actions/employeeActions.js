@@ -8,9 +8,9 @@ export const fetchEmployees = () => dispatch => {
   dispatch(setLoading());
   return axios
     .get('/api/employees')
-    .then( res =>
+    .then( res => {
       dispatch(setEmployees(res.data))
-    )
+    })
     .catch(err =>
       dispatch(returnErrors(err.response.data, err.response.status))
     );
