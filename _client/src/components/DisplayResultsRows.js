@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getEmployees } from '../actions/employeeActions';
 import PropTypes from 'prop-types';
 
 class DisplayResultsRows extends Component {
   
   static propTypes = {
-    getEmployees: PropTypes.func.isRequired,
     filteredData: PropTypes.array.isRequired
   };
 
@@ -17,10 +15,6 @@ class DisplayResultsRows extends Component {
       data: '',
       filteredData: ''
     };
-  }
-
-  componentDidMount() {
-    this.props.getEmployees();
   }
 
   render() {
@@ -70,5 +64,5 @@ const mapStateToProps = state => {
   }
 };
 
-export default connect( mapStateToProps, { getEmployees } )(DisplayResultsRows);
+export default connect(mapStateToProps)(DisplayResultsRows);
 
