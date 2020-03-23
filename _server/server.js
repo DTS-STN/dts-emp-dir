@@ -14,6 +14,8 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use('/api', router);
 
+console.log("test")
+
 mongoose.connect(`${MONGO_CONN_STRING}`, { useNewUrlParser: true, useFindAndModify: false });
 mongoose.connection.once('open', function(){
     console.log('connected to the Database.');

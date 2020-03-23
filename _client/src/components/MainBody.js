@@ -1,38 +1,55 @@
 import React, { Component } from 'react';
 //import { Container } from 'reactstrap';   NOTE: ReactStrap is kind of a version of bootstrap it will need to be added to the package.json
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+
+// import LoginModal from './auth/LoginModal';
 import SearchBar from './SearchBar';
 import DisplayResults from './DisplayResults';
 
 
 class MainBody extends Component {
-  render() {
 
-    //const { language } = this.props.language
+  static propTypes = {
+    isAuthenticated: PropTypes.bool,
+    isSuperuser: PropTypes.bool,
+    isAdmin: PropTypes.bool
+  };
+
+  render() {
 
     return (
       <div id="mainbody">
 
         <h1 className="bluetitle">Employee Directory</h1>
 
-        {/* <Container> */}
-        <SearchBar />
-        <DisplayResults />
-
-        {/* <div className="row placeholder">
-          <div className="col-md-12 pt-3 bolder">
-            <p>Your current language is : {language === 'fr' ? 'French' : 'English'} </p>
+        {/* {this.props.isAuthenticated ? */}
+          <div>
+            <SearchBar />
+            <DisplayResults />
           </div>
-        </div> */}
+      {/* : 
+          <div className="row">
+            <div className="col-3">
+              &nbsp;
+            </div>
+            <div className="col-6">
+              <LoginModal />
+            </div>
+            <div className="col-3">
+              &nbsp;
+            </div>
+          </div>
+        }  */}
 
-        {/* </Container> */}
       </div>
     )
   }
 }
 
 const mapStateToProps = state => ({
-  language: state.language
+    isAuthenticated: state.auth.isAuthenticated,
+    auth: state.auth
 });
 
 export default connect( mapStateToProps )(MainBody);

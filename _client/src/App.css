@@ -619,7 +619,6 @@ ul, ol {
 }
 
 table {
-  font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
 }
@@ -630,8 +629,13 @@ td, th {
 }
 
 tr:nth-child(even) {
-  background-color: #dddddd;
+  background-color: #c5d4eb;
 }
 .align-center {
   text-align: center;
+}
+th {
+  font-weight: 600;
+  background-color: royalblue;
+  color: white;
 }
