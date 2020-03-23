@@ -23,7 +23,7 @@ class DisplayResultsRows extends Component {
 
   componentDidMount() {
     this.props.fetchEmployees();
-    console.log(this.props.filteredData)
+    console.log(this.props.loading)
   }
 
   render() {
