@@ -56,7 +56,7 @@ const mapStateToProps = state => {
       obj.title.toLowerCase().includes(searchTerm) ||
       obj.department.toLowerCase().includes(searchTerm) ||
       obj.organization.toLowerCase().includes(searchTerm) ||
-      obj.phone.toLowerCase().includes(searchTerm)) {
+      obj.phone.replace(/-/gi,'').includes(searchTerm)) {
         acc.push(obj)
       }
       return acc
