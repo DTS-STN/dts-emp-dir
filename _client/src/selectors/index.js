@@ -8,7 +8,7 @@ export const getVisibleEmployees = createSelector(
   (searchTerm, employees) => {
     return employees.reduce((acc, obj) => {
       console.log(acc)
-      if(obj.DisplayName !== undefined && obj.DisplayName !== null) {
+      if(obj.DisplayName !== null && obj.DisplayName !== undefined) {
         console.log(obj.DisplayName)
         if (obj.DisplayName.toLowerCase().includes(searchTerm) ||
             obj.JobTitle.toLowerCase().includes(searchTerm) ||
@@ -16,7 +16,7 @@ export const getVisibleEmployees = createSelector(
             obj.Email.toLowerCase().includes(searchTerm) ||
             obj.telephoneNumber.replace(/-/gi,'').includes(searchTerm) ||
             obj.gcCityEnglish.toLowerCase().includes(searchTerm) ||
-            obj.gcProvinceEnglish.toLowerCase().includes(searchTerm)) {
+            obj.gcProvinceNameEnglish.toLowerCase().includes(searchTerm)) {
           acc.push(obj)
         }
       }
