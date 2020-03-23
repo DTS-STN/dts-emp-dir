@@ -10,16 +10,16 @@ on:
 
 jobs:
   testing:
-    name: testing
+    name: Testing
+    if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - name: run docker compose
+    - name: Run Full e2e Tests using Docker Compose
       run: MONGO_DB_PASS=${{ secrets.MONGO_DB_PASS }} MONGO_CONN_STRING=${{ secrets.MONGO_CONN_STRING }} NODE_SERVER_PORT=${{ secrets.NODE_SERVER_PORT }} API_SERVER_URL=${{ secrets.API_SERVER_URL }} docker-compose -f docker-compose.pipelinetesting.yml up --exit-code-from e2e
 
   publish_Deploy:
     name: Publish and Deploy
-    needs: testing
     if: github.event_name == 'push'
     runs-on: ubuntu-latest
     steps:
