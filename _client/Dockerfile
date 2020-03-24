@@ -8,12 +8,10 @@ COPY . ./
 
 WORKDIR ./
 
-RUN yarn install --quiet && \
-    yarn add serve --quiet && \
-    yarn build
+RUN yarn install --quiet
 
 EXPOSE 3000
 
-ENTRYPOINT [ "yarn", "start-prod"]
+ENTRYPOINT [ "yarn", "start"]
  
 
