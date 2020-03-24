@@ -11,22 +11,22 @@ function checkA11y(cy) {
 
 
 
-describe('changes to the contact on button click page', function() {
-  beforeEach(function() {
-    cy.visit('/')
-  })
+// describe('changes to the contact on button click page', function() {
+//   beforeEach(function() {
+//     cy.visit('/')
+//   })
 
-  it('Has no detectable a11y violations on load', () => {
-    // Test the page at initial load
-    cy.get('#banner-ed')
-  //  cy.injectAxe() 
-    cy.url().should('contains', '/')
-    // there is a wait so that the image can load otherwise the white text is on a white background
-  //  cy.wait(3000);
-  //  checkA11y(cy)
-})
+//   it('Has no detectable a11y violations on load', () => {
+//     // Test the page at initial load
+//     cy.get('#banner-ed')
+//   //  cy.injectAxe() 
+//     cy.url().should('contains', '/')
+//     // there is a wait so that the image can load otherwise the white text is on a white background
+//   //  cy.wait(3000);
+//   //  checkA11y(cy)
+// })
 
-})
+// })
 // describe('open to the Contact page', function() {
 //   beforeEach(function() {
 //     cy.visit('/contact.html')
