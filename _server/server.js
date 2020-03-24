@@ -1,7 +1,7 @@
 
 const express = require('express');
 const mongoose = require('mongoose');
-const cors = require('cors');
+//const cors = require('cors');
 
 const app = express();
 const PORT = process.env.NODE_SERVER_PORT;
@@ -10,7 +10,7 @@ const MONGO_CONN_STRING = process.env.MONGO_CONN_STRING.replace('-password-', pr
 //development verification
 if (process.env.NODE_ENV == 'development'){ console.log(`CONNECTION STRING ${MONGO_CONN_STRING} : SERVER PORT ${PORT}`);}
 
-app.use(cors);
+//app.use(cors);
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
