@@ -1,4 +1,4 @@
-# ESDC and Government of Canada - Essential Employee Directory 
+# ESDC and Government of Canada - Critical Employee Directory 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
