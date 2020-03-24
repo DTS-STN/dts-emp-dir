@@ -6,7 +6,7 @@ const jwt = require('jsonwebtoken');
 
 // User Model
 const User = require('../models/user');
-const JWTSECRET = process.env.JWTSECRET;
+const JWTSECRET = `${process.env.NODE_JWTSECRET}`;
 
 // @route   POST api/users
 // @desc    Register new user
