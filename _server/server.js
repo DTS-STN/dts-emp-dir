@@ -1,7 +1,7 @@
 
 const express = require('express');
 const mongoose = require('mongoose');
-const router = require('./routes/index');
+//const router = require('./routes/index');
 
 const app = express();
 const PORT = process.env.NODE_SERVER_PORT;
@@ -12,7 +12,11 @@ if (process.env.NODE_ENV == 'development'){ console.log(`CONNECTION STRING ${MON
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
-app.use('/api', router);
+
+app.use('/api/employees', require('./routes/index'));
+app.use('/api/auth', require('./routes/auth'));
+app.use('/api/users', require('./routes/user'));
+
 
 console.log("test")
 

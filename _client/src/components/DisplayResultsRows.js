@@ -83,7 +83,9 @@ const mapStateToProps = state => {
   const { data, searchTerm }  = state.employees
   
   return {
-    filteredData: data.filter( data => data.DisplayName !== null ).reduce((acc, obj) => {
+    filteredData: data.filter( data => data.DisplayName !== null )
+                      .filter( data => data.gcProvinceEnglish !== null )
+                      .reduce((acc, obj) => {
       console.log(obj)
       if (obj.DisplayName.toLowerCase().includes(searchTerm) ||
           obj.JobTitle.toLowerCase().includes(searchTerm) ||
