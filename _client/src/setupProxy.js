@@ -3,7 +3,7 @@ module.exports = function(app) {
   app.use(
     '/api',
     createProxyMiddleware({
-      target: `${process.env.API_SERVER_URL}`,
+      target: "http://goc-dir-api.dev.dts-stn.com",
       changeOrigin: true,
     })
   );
