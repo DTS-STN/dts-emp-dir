@@ -1,14 +1,15 @@
 import axios from 'axios';
 import { SET_EMPLOYEES, GET_EMPLOYEE_DETAILS, GET_EMPLOYEE_ORG, EMPLOYEE_LOADING, FILTER_EMPLOYEES } from './types';
+import { tokenConfig } from './authActions';
 import { returnErrors } from './errorActions';
 
 
 // Get Employees
-export const fetchEmployees = () => dispatch => {
+export const fetchEmployees = () => (dispatch, getState) => {
   dispatch(setLoading());
   return axios
-    .get('/api/employees')
-    .then(res =>
+  .get('/api/employees', tokenConfig(getState))
+  .then(res =>
       dispatch({
         type: SET_EMPLOYEES,
         payload: res.data
@@ -59,4 +60,3 @@ export const setLoading = () => {
     type: EMPLOYEE_LOADING
   };
 };
-

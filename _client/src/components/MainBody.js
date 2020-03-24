@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-// import LoginModal from './auth/LoginModal';
+import LoginModal from './auth/LoginModal';
 import SearchBar from './SearchBar';
 import DisplayResults from './DisplayResults';
 
@@ -23,12 +23,12 @@ class MainBody extends Component {
 
         <h1 id="banner-ed" className="bluetitle">Employee Directory</h1>
 
-        {/* {this.props.isAuthenticated ? */}
+        {this.props.isAuthenticated ?
           <div>
             <SearchBar />
             <DisplayResults />
           </div>
-      {/* : 
+        : 
           <div className="row">
             <div className="col-3">
               &nbsp;
@@ -40,7 +40,7 @@ class MainBody extends Component {
               &nbsp;
             </div>
           </div>
-        }  */}
+        }
 
       </div>
     )
