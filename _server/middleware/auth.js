@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 
-const JWTSECRET = process.env.JWTSECRET;
+const JWTSECRET = `${process.env.NODE_JWTSECRET}`;
 
 function auth(req, res, next) {
   
