@@ -1,7 +1,6 @@
 
 const express = require('express');
 const mongoose = require('mongoose');
-const router = require('./routes/index');
 //const cors = require('cors');
 
 const app = express();
@@ -14,7 +13,12 @@ if (process.env.NODE_ENV == 'development'){ console.log(`CONNECTION STRING ${MON
 //app.use(cors);
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
-app.use('/api', router);
+
+
+app.use('/api/employees', require('./routes/index'));
+app.use('/api/auth', require('./routes/auth'));
+app.use('/api/users', require('./routes/user'));
+
 
 console.log("test")
 
