@@ -1,0 +1,65 @@
+repositories:
+    - name: dts
+      url: https://helm.dts-stn.com
+    # helm-git powered repository: You can treat any Git repository as a charts repository
+    - name: dtsempdir
+      url: git+https://{{ requiredEnv "GITHUB_USER" }}:{{ requiredEnv "GITHUB_TOKEN" }}@github.com/DTS-STN/dts-emp-dir@helm/charts?ref=helmfile
+{{- if or (eq .Environment.Name "prod-blue") (eq .Environment.Name "prod-green") }}    
+context: EsDCDTSRG-K8S
+{{ else }}
+context: EsDCDTSDevRG-K8S
+{{ end }}
+   
+environments:
+    benrd: 
+    kylerd:
+    adamrd:
+    marcusrd:
+    ericrd:
+    dev:
+    prod-blue:
+    prod-green: 
+
+releases:
+# GoC-Directory App
+  - name: goc-dir-{{ .Environment.Name }}
+    chart: dtsempdir/dts-goc-dir
+    version: 0.2.10
+    values:
+      - overrides/gui/values.yaml.gotmpl
+    labels:
+        category: dts
+        app: goc-dir
+        tier: frontend
+    namespace: goc-dir-{{ .Environment.Name }}
+    installed: true
+    wait: false
+
+    # GoC-Directory Database
+  - name: goc-dir-db-{{ .Environment.Name }}
+    chart: bitnami/mongodb
+    version: 7.0.0
+    values:
+      - charts/goc-dir/database/values.yaml.gotmpl   
+    labels:
+        category: dts
+        app: goc-dir
+        tier: database
+    namespace: goc-dir-{{ .Environment.Name }}
+    installed: true
+    wait: false
+
+    # GoC-Directory API
+
+  - name: goc-dir-api-{{ .Environment.Name }}
+    chart: dtsempdir/dts-goc-dir-api
+    version: 1.5.3
+    values:
+      - charts/goc-dir/api/values.yaml.gotmpl
+    labels:
+        category: mts
+        app: goc-dir
+        tier: middle
+    namespace: goc-dir-{{ .Environment.Name }}
+    installed: true
+    wait: false

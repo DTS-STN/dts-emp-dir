@@ -1,0 +1,48 @@
+image:
+  registry: mtscontainers.azurecr.io
+  repository: dts-emp-dir-server
+{{ if or (eq .Environment.Name "prod-blue") (eq .Environment.Name "prod-green") (eq .Environment.Name "dev")}}
+  tag: "{{ requiredEnv "DOCKER_TAG" }}"
+{{ else }}
+  tag: latest
+{{ end }}
+  pullPolicy: Always
+backofflimit: 4
+dataseed:
+    enabled: false
+git:
+    branchname: master
+    user: gocmts
+    password: "{{ requiredEnv "GITHUB_TOKEN" }}"
+    repo: github.com/MTS-STM/dts-emp-dir
+extraEnv:
+  - name: MONGO_USER 
+    value: dbuser
+  - name: MONGO_DB_PASS
+    value: {{ requiredEnv "MONGO_DB_PASS" }}    
+  - name: MONGO_DATABASE 
+    value: users
+  - name: MONGO_CONN_STRING
+    value: {{ requiredEnv "MONGO_CONN_STRING" }}
+  - name: NODE_JWTSECRET
+    value: {{ requiredEnv "NODE_JWTSECRET" }}
+mongodb:
+    {{ if or (eq .Environment.Name "prod-blue") (eq .Environment.Name "prod-green") }}
+    persistence:
+        enabled: true
+        existingClaim: goc-dir-mongodb-pvc
+    {{ end }}
+    connectionString: notusedanymore
+ingress:
+      enabled: true
+      hosts:
+      {{ if or (eq .Environment.Name "prod-blue") (eq .Environment.Name "prod-green") }}
+        - goc-dir-api.{{ requiredEnv "BASE_DOMAIN" }}
+      {{ end }}      
+        - goc-dir-api.{{ .Environment.Name }}.{{ requiredEnv "BASE_DOMAIN" }}
+      annotations: {}
+      # kubernetes.io/ingress.class: traefik
+livenessProbePath: /
+readinessProbePath: /
+
+
