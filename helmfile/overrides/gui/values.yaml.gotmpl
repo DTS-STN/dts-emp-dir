@@ -1,0 +1,22 @@
+image:
+  repository: mtscontainers.azurecr.io/dts-emp-dir-client
+{{ if or (eq .Environment.Name "prod-blue") (eq .Environment.Name "prod-green") (eq .Environment.Name "dev")}}
+  tag: "{{ requiredEnv "DOCKER_TAG" }}" 
+{{ else }}
+  tag: latest
+{{ end }}
+  pullPolicy: Always
+extraEnv:
+  - name: API_SERVER_URL
+    value: https://goc-dir-api.{{ .Environment.Name }}.{{ requiredEnv "BASE_DOMAIN" }}
+ingress:
+      enabled: true
+      hosts:
+      {{ if or (eq .Environment.Name "prod-blue") (eq .Environment.Name "prod-green") }}
+        - goc-dir.{{ requiredEnv "BASE_DOMAIN" }}
+      {{ end }}      
+        - goc-dir.{{ .Environment.Name }}.{{ requiredEnv "BASE_DOMAIN" }}
+      annotations: {}
+      # kubernetes.io/ingress.class: traefik
+livenessDelay: 180
+readinessDelay: 180
