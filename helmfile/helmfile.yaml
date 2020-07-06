@@ -40,7 +40,7 @@ releases:
     chart: bitnami/mongodb
     version: 7.0.0
     values:
-      - charts/goc-dir/database/values.yaml.gotmpl   
+      - overrides/database/values.yaml.gotmpl   
     labels:
         category: dts
         app: goc-dir
@@ -53,11 +53,11 @@ releases:
 
   - name: goc-dir-api-{{ .Environment.Name }}
     chart: dtsempdir/dts-goc-dir-api
-    version: 1.5.3
+    version: 1.7.2
     values:
-      - charts/goc-dir/api/values.yaml.gotmpl
+      - overrides/api/values.yaml.gotmpl
     labels:
-        category: mts
+        category: dts
         app: goc-dir
         tier: middle
     namespace: goc-dir-{{ .Environment.Name }}
